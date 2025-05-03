@@ -29,15 +29,21 @@ const isTokenExpired = (expiresAt: number): boolean => {
 
 // Team Energy Authentication
 const authenticateTeamEnergy = async (): Promise<string> => {
+  console.log('Attempting Team Energy authentication...');
+  
   if (authTokens.teamEnergy && !isTokenExpired(authTokens.teamEnergy.expiresAt)) {
+    console.log('Using cached Team Energy token');
     return authTokens.teamEnergy.token;
   }
 
   try {
+    console.log('Calling Team Energy authentication API...');
     const response = await fetch('https://api.teamenergy.am/UserManagement/Login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
       },
       body: JSON.stringify({
         guestMode: false,
@@ -46,12 +52,22 @@ const authenticateTeamEnergy = async (): Promise<string> => {
       })
     });
 
+    console.log('Team Energy auth response status:', response.status);
+    
     if (!response.ok) {
       throw new Error(`Team Energy authentication failed: ${response.status}`);
     }
 
     const data = await response.json();
+    console.log('Team Energy auth response data:', data);
+    
     const token = data.token || data.accessToken;
+    
+    if (!token) {
+      throw new Error('No token found in Team Energy response');
+    }
+    
+    console.log('Team Energy token obtained successfully');
     
     // Set expiration to 23 hours from now to be safe
     const expiresAt = Date.now() + 23 * 60 * 60 * 1000;
@@ -70,15 +86,21 @@ const authenticateTeamEnergy = async (): Promise<string> => {
 
 // Evan Charge Authentication
 const authenticateEvanCharge = async (): Promise<string> => {
+  console.log('Attempting Evan Charge authentication...');
+  
   if (authTokens.evanCharge && !isTokenExpired(authTokens.evanCharge.expiresAt)) {
+    console.log('Using cached Evan Charge token');
     return authTokens.evanCharge.token;
   }
 
   try {
+    console.log('Calling Evan Charge authentication API...');
     const response = await fetch('https://evcharge-api-prod.e-evan.com/api/users/auth/signin', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': window.location.origin
       },
       body: JSON.stringify({
         phone: "+37493709944",
@@ -86,12 +108,22 @@ const authenticateEvanCharge = async (): Promise<string> => {
       })
     });
 
+    console.log('Evan Charge auth response status:', response.status);
+    
     if (!response.ok) {
       throw new Error(`Evan Charge authentication failed: ${response.status}`);
     }
 
     const data = await response.json();
+    console.log('Evan Charge auth response data:', data);
+    
     const token = data.token || data.accessToken;
+    
+    if (!token) {
+      throw new Error('No token found in Evan Charge response');
+    }
+    
+    console.log('Evan Charge token obtained successfully');
     
     // Set expiration to 23 hours from now to be safe
     const expiresAt = Date.now() + 23 * 60 * 60 * 1000;
@@ -111,24 +143,32 @@ const authenticateEvanCharge = async (): Promise<string> => {
 // Fetch Team Energy Chargers
 const fetchTeamEnergyChargers = async (): Promise<any> => {
   try {
+    console.log('Fetching Team Energy token...');
     const token = await authenticateTeamEnergy();
+    console.log('Team Energy token received, now fetching chargers...');
     
     const response = await fetch('https://api.teamenergy.am/ChargePoint/search', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'Origin': window.location.origin
       },
       body: JSON.stringify({
         noLatest: 1
       })
     });
 
+    console.log('Team Energy chargers response status:', response.status);
+    
     if (!response.ok) {
       throw new Error(`Failed to fetch Team Energy chargers: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log('Team Energy chargers data received:', data);
+    return data;
   } catch (error) {
     console.error('Error fetching Team Energy chargers:', error);
     throw error;
@@ -138,20 +178,28 @@ const fetchTeamEnergyChargers = async (): Promise<any> => {
 // Fetch Evan Charge Chargers
 const fetchEvanChargeChargers = async (): Promise<any> => {
   try {
+    console.log('Fetching Evan Charge token...');
     const token = await authenticateEvanCharge();
+    console.log('Evan Charge token received, now fetching chargers...');
     
     const response = await fetch('https://evcharge-api-prod.e-evan.com/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        'Origin': window.location.origin
       }
     });
 
+    console.log('Evan Charge chargers response status:', response.status);
+    
     if (!response.ok) {
       throw new Error(`Failed to fetch Evan Charge chargers: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    console.log('Evan Charge chargers data received:', data);
+    return data;
   } catch (error) {
     console.error('Error fetching Evan Charge chargers:', error);
     throw error;
@@ -306,29 +354,60 @@ export const convertEvanChargeData = (data: any): ChargingStation[] => {
 export const fetchAllChargers = async (): Promise<ChargingStation[]> => {
   try {
     console.log('Fetching all chargers from APIs...');
-    const teamEnergyData = await fetchTeamEnergyChargers();
-    console.log('Team Energy data received:', teamEnergyData);
     
-    // Now fetch Evan Charge data with updated credentials
-    const evanChargeData = await fetchEvanChargeChargers();
-    console.log('Evan Charge data received:', evanChargeData);
-
-    const teamEnergyStations = convertTeamEnergyData(teamEnergyData);
-    console.log('Converted Team Energy stations:', teamEnergyStations);
+    // Create a timeout promise to handle API timeouts
+    const timeout = (ms: number) => {
+      return new Promise((_, reject) => {
+        setTimeout(() => reject(new Error(`Request timed out after ${ms}ms`)), ms);
+      });
+    };
     
-    const evanChargeStations = convertEvanChargeData(evanChargeData);
-    console.log('Converted Evan Charge stations:', evanChargeStations);
+    // Try to fetch Team Energy data with a timeout
+    let teamEnergyData;
+    try {
+      teamEnergyData = await Promise.race([
+        fetchTeamEnergyChargers(),
+        timeout(10000) // 10 second timeout
+      ]);
+      console.log('Team Energy data successfully received');
+    } catch (error) {
+      console.error('Team Energy API error:', error);
+      teamEnergyData = [];
+    }
     
-    // If APIs fail, fall back to mock data
-    if (teamEnergyStations.length === 0 && evanChargeStations.length === 0) {
-      console.log('No data from APIs, falling back to mock data');
+    // Try to fetch Evan Charge data with a timeout
+    let evanChargeData;
+    try {
+      evanChargeData = await Promise.race([
+        fetchEvanChargeChargers(),
+        timeout(10000) // 10 second timeout
+      ]);
+      console.log('Evan Charge data successfully received');
+    } catch (error) {
+      console.error('Evan Charge API error:', error);
+      evanChargeData = [];
+    }
+    
+    // Check if we received valid data arrays
+    const teamEnergyStations = Array.isArray(teamEnergyData) ? convertTeamEnergyData(teamEnergyData) : [];
+    console.log(`Converted ${teamEnergyStations.length} Team Energy stations`);
+    
+    const evanChargeStations = Array.isArray(evanChargeData) ? convertEvanChargeData(evanChargeData) : [];
+    console.log(`Converted ${evanChargeStations.length} Evan Charge stations`);
+    
+    // If no API data, fall back to mock data
+    const allStations = [...teamEnergyStations, ...evanChargeStations];
+    
+    if (allStations.length === 0) {
+      console.warn('No data from APIs, falling back to mock data');
       return fetchMockChargers();
     }
-
-    return [...teamEnergyStations, ...evanChargeStations];
+    
+    console.log(`Returning ${allStations.length} total stations`);
+    return allStations;
   } catch (error) {
     console.error('Error fetching all chargers:', error);
-    console.log('Falling back to mock data due to error');
+    console.warn('Falling back to mock data due to error');
     return fetchMockChargers();
   }
 };
