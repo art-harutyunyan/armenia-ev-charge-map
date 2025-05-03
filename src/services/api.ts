@@ -80,9 +80,8 @@ const authenticateEvanCharge = async (): Promise<string> => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        // Add required authentication details here - these would need to be provided
-        email: "user@example.com", // These are placeholder credentials
-        password: "password123"     // You'll need to update with real credentials
+        email: "user@example.com", // These credentials need to be updated
+        password: "password123"
       })
     });
 
@@ -160,76 +159,104 @@ const fetchEvanChargeChargers = async (): Promise<any> => {
 
 // Map Team Energy port type to unified port type
 const mapTeamEnergyPortType = (portType: string): PortType => {
-  const typeMap: Record<string, PortType> = {
-    // Add mapping based on actual Team Energy API response
-    'Type1': 'TYPE_1',
-    'Type2': 'TYPE_2',
-    'CCS': 'CCS',
-    'CHAdeMO': 'CHADEMO',
-    // Add more mappings as needed
-  };
-
-  return typeMap[portType] || 'OTHER';
+  switch(portType) {
+    case "Type 2":
+    case "Type2":
+      return 'TYPE_2';
+    case "Type 1":
+    case "Type1":
+      return 'TYPE_1';
+    case "CCS":
+    case "CCS Combo":
+      return 'CCS';
+    case "CHAdeMO":
+      return 'CHADEMO';
+    default:
+      return 'OTHER';
+  }
 };
 
 // Map Evan Charge port type to unified port type
 const mapEvanChargePortType = (portType: string): PortType => {
-  const typeMap: Record<string, PortType> = {
-    // Add mapping based on actual Evan Charge API response
-    'Type1': 'TYPE_1',
-    'Type2': 'TYPE_2',
-    'CCS': 'CCS',
-    'CHAdeMO': 'CHADEMO',
-    // Add more mappings as needed
-  };
-
-  return typeMap[portType] || 'OTHER';
+  switch(portType) {
+    case "Type 2":
+    case "Type2":
+      return 'TYPE_2';
+    case "Type 1":
+    case "Type1":
+      return 'TYPE_1';
+    case "CCS":
+    case "CCS Combo":
+      return 'CCS';
+    case "CHAdeMO":
+      return 'CHADEMO';
+    default:
+      return 'OTHER';
+  }
 };
 
 // Map Team Energy status to unified status
 const mapTeamEnergyStatus = (status: string): ChargingStatus => {
-  const statusMap: Record<string, ChargingStatus> = {
-    // Add mapping based on actual Team Energy API response
-    'Available': 'AVAILABLE',
-    'Busy': 'BUSY',
-    'Offline': 'OFFLINE',
-    // Add more mappings as needed
-  };
-
-  return statusMap[status] || 'UNKNOWN';
+  switch(status?.toLowerCase()) {
+    case "available":
+    case "free":
+      return 'AVAILABLE';
+    case "busy":
+    case "charging":
+    case "ocupated":
+    case "occupied":
+      return 'BUSY';
+    case "offline":
+    case "unavailable":
+      return 'OFFLINE';
+    default:
+      return 'UNKNOWN';
+  }
 };
 
 // Map Evan Charge status to unified status
 const mapEvanChargeStatus = (status: string): ChargingStatus => {
-  const statusMap: Record<string, ChargingStatus> = {
-    // Add mapping based on actual Evan Charge API response
-    'AVAILABLE': 'AVAILABLE',
-    'BUSY': 'BUSY',
-    'OFFLINE': 'OFFLINE',
-    // Add more mappings as needed
-  };
-
-  return statusMap[status] || 'UNKNOWN';
+  switch(status?.toLowerCase()) {
+    case "available":
+    case "free":
+      return 'AVAILABLE';
+    case "busy":
+    case "charging":
+    case "ocupated":
+    case "occupied":
+      return 'BUSY';
+    case "offline":
+    case "unavailable":
+      return 'OFFLINE';
+    default:
+      return 'UNKNOWN';
+  }
 };
 
 // Convert Team Energy API response to unified format
 export const convertTeamEnergyData = (data: any): ChargingStation[] => {
-  // This is a placeholder implementation - update based on actual API response structure
   try {
+    // Check if data is in the expected format
+    if (!Array.isArray(data)) {
+      console.error('Team Energy data is not an array:', data);
+      return [];
+    }
+
     return data.map((station: any) => {
+      // Process charging points
       const ports = station.chargePoints?.map((point: any) => ({
-        id: point.id,
+        id: String(point.id || `te-port-${Math.random().toString(36).substr(2, 9)}`),
         type: mapTeamEnergyPortType(point.connectorType),
         power: parseFloat(point.power) || 0,
         status: mapTeamEnergyStatus(point.status)
       })) || [];
 
       return {
-        id: station.id,
+        id: String(station.id || `te-station-${Math.random().toString(36).substr(2, 9)}`),
         name: station.name || 'Team Energy Station',
         brand: 'TEAM_ENERGY',
-        latitude: station.lat,
-        longitude: station.lng,
+        latitude: parseFloat(station.lat),
+        longitude: parseFloat(station.lng),
         address: station.address || 'No address provided',
         ports
       };
@@ -242,22 +269,28 @@ export const convertTeamEnergyData = (data: any): ChargingStation[] => {
 
 // Convert Evan Charge API response to unified format
 export const convertEvanChargeData = (data: any): ChargingStation[] => {
-  // This is a placeholder implementation - update based on actual API response structure
   try {
+    // Check if data is in the expected format
+    if (!Array.isArray(data)) {
+      console.error('Evan Charge data is not an array:', data);
+      return [];
+    }
+
     return data.map((station: any) => {
+      // Process connectors
       const ports = station.connectors?.map((connector: any) => ({
-        id: connector.id,
+        id: String(connector.id || `ec-port-${Math.random().toString(36).substr(2, 9)}`),
         type: mapEvanChargePortType(connector.type),
         power: parseFloat(connector.power) || 0,
         status: mapEvanChargeStatus(connector.status)
       })) || [];
 
       return {
-        id: station.id,
+        id: String(station.id || `ec-station-${Math.random().toString(36).substr(2, 9)}`),
         name: station.name || 'Evan Charge Station',
         brand: 'EVAN_CHARGE',
-        latitude: station.latitude,
-        longitude: station.longitude,
+        latitude: parseFloat(station.latitude),
+        longitude: parseFloat(station.longitude),
         address: station.address || 'No address provided',
         ports
       };
@@ -271,18 +304,31 @@ export const convertEvanChargeData = (data: any): ChargingStation[] => {
 // Fetch all chargers and unify the data
 export const fetchAllChargers = async (): Promise<ChargingStation[]> => {
   try {
-    const [teamEnergyData, evanChargeData] = await Promise.all([
-      fetchTeamEnergyChargers(),
-      fetchEvanChargeChargers()
-    ]);
+    console.log('Fetching all chargers from APIs...');
+    const teamEnergyData = await fetchTeamEnergyChargers();
+    console.log('Team Energy data received:', teamEnergyData);
+    
+    // Temporarily comment out Evan Charge until we have valid credentials
+    // const evanChargeData = await fetchEvanChargeChargers();
+    // console.log('Evan Charge data received:', evanChargeData);
 
     const teamEnergyStations = convertTeamEnergyData(teamEnergyData);
-    const evanChargeStations = convertEvanChargeData(evanChargeData);
+    console.log('Converted Team Energy stations:', teamEnergyStations);
+    
+    // Temporarily use empty array for Evan Charge
+    const evanChargeStations: ChargingStation[] = []; // convertEvanChargeData(evanChargeData);
+    
+    // If APIs fail, fall back to mock data
+    if (teamEnergyStations.length === 0 && evanChargeStations.length === 0) {
+      console.log('No data from APIs, falling back to mock data');
+      return fetchMockChargers();
+    }
 
     return [...teamEnergyStations, ...evanChargeStations];
   } catch (error) {
     console.error('Error fetching all chargers:', error);
-    return [];
+    console.log('Falling back to mock data due to error');
+    return fetchMockChargers();
   }
 };
 

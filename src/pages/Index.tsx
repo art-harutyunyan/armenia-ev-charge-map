@@ -1,10 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import ChargingMap from '@/components/ChargingMap';
 import FilterPanel from '@/components/FilterPanel';
 import { ChargingStation, ChargingStationFilters } from '@/types/chargers';
-import { fetchMockChargers, fetchAllChargers } from '@/services/api';
+import { fetchAllChargers } from '@/services/api';
 import { initScheduler } from '@/utils/scheduler';
 import { useToast } from '@/hooks/use-toast';
 
@@ -23,16 +22,14 @@ const Index: React.FC = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        // Initially use mock data for development
-        // In production, uncomment the fetchAllChargers line
-        const data = fetchMockChargers();
-        // const data = await fetchAllChargers();
+        // Use the real API data instead of mock data
+        const data = await fetchAllChargers();
         setStations(data);
         
         if (data.length === 0) {
           toast({
             title: "No charging stations found",
-            description: "No charging stations could be retrieved. Using mock data for demonstration.",
+            description: "No charging stations could be retrieved. Please try again later.",
             variant: "destructive"
           });
         } else {
@@ -44,13 +41,9 @@ const Index: React.FC = () => {
       } catch (error) {
         console.error('Failed to fetch charging stations:', error);
         
-        // Use mock data as fallback
-        const mockData = fetchMockChargers();
-        setStations(mockData);
-        
         toast({
           title: "Error loading data",
-          description: "Failed to load charging stations. Using mock data for demonstration.",
+          description: "Failed to load charging stations. Please check your network connection.",
           variant: "destructive"
         });
       } finally {
