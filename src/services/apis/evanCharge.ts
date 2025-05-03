@@ -2,13 +2,14 @@
 import { ChargingStation } from '@/types/chargers';
 import { ApiResponse, AuthResponse, RawEvanChargeStation } from './types';
 import { convertEvanChargeToStandardFormat } from '@/utils/dataConverters';
+import { proxyFetch } from './proxy';
 
 const BASE_URL = 'https://api.evancharge.com';
 
 export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
   console.log('Authenticating with Evan Charge...');
   try {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
+    const response = await proxyFetch(`${BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
       })
     });
 
-    console.log('Evan Charge auth response status:', response.status);
+    console.log('Evan Charge auth response:', response);
     
     if (!response.ok) {
       const errorText = await response.text();
@@ -28,7 +29,7 @@ export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
     }
 
     const data: AuthResponse = await response.json();
-    console.log('Evan Charge auth successful, token retrieved');
+    console.log('Evan Charge auth successful, token retrieved:', data);
     return { success: true, data: data.token };
   } catch (error) {
     console.error('Evan Charge auth exception:', error);
@@ -39,7 +40,7 @@ export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
 export async function fetchEvanChargeChargers(token: string): Promise<ApiResponse<ChargingStation[]>> {
   console.log('Fetching Evan Charge chargers...');
   try {
-    const response = await fetch(`${BASE_URL}/api/stations`, {
+    const response = await proxyFetch(`${BASE_URL}/api/stations`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -47,7 +48,7 @@ export async function fetchEvanChargeChargers(token: string): Promise<ApiRespons
       }
     });
 
-    console.log('Evan Charge chargers response status:', response.status);
+    console.log('Evan Charge chargers response:', response);
     
     if (!response.ok) {
       const errorText = await response.text();
@@ -56,7 +57,7 @@ export async function fetchEvanChargeChargers(token: string): Promise<ApiRespons
     }
 
     const data: RawEvanChargeStation[] = await response.json();
-    console.log(`Evan Charge chargers fetched: ${data.length}`);
+    console.log(`Evan Charge chargers fetched:`, data);
     
     const standardizedChargers = data.map(station => 
       convertEvanChargeToStandardFormat(station)

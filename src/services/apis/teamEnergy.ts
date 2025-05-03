@@ -2,13 +2,14 @@
 import { ChargingStation } from '@/types/chargers';
 import { ApiResponse, AuthResponse, RawTeamEnergyStation } from './types';
 import { convertTeamEnergyToStandardFormat } from '@/utils/dataConverters';
+import { proxyFetch } from './proxy';
 
 const BASE_URL = 'https://api.teamenergy.am';
 
 export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
   console.log('Authenticating with Team Energy...');
   try {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
+    const response = await proxyFetch(`${BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
       })
     });
 
-    console.log('Team Energy auth response status:', response.status);
+    console.log('Team Energy auth response:', response);
     
     if (!response.ok) {
       const errorText = await response.text();
@@ -28,7 +29,7 @@ export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
     }
 
     const data: AuthResponse = await response.json();
-    console.log('Team Energy auth successful, token retrieved');
+    console.log('Team Energy auth successful, token retrieved:', data);
     return { success: true, data: data.token };
   } catch (error) {
     console.error('Team Energy auth exception:', error);
@@ -39,7 +40,7 @@ export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
 export async function fetchTeamEnergyChargers(token: string): Promise<ApiResponse<ChargingStation[]>> {
   console.log('Fetching Team Energy chargers...');
   try {
-    const response = await fetch(`${BASE_URL}/api/v1/charging-stations`, {
+    const response = await proxyFetch(`${BASE_URL}/api/v1/charging-stations`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -47,7 +48,7 @@ export async function fetchTeamEnergyChargers(token: string): Promise<ApiRespons
       }
     });
 
-    console.log('Team Energy chargers response status:', response.status);
+    console.log('Team Energy chargers response:', response);
     
     if (!response.ok) {
       const errorText = await response.text();
@@ -56,7 +57,7 @@ export async function fetchTeamEnergyChargers(token: string): Promise<ApiRespons
     }
 
     const data: { chargers: RawTeamEnergyStation[] } = await response.json();
-    console.log(`Team Energy chargers fetched: ${data.chargers.length}`);
+    console.log(`Team Energy chargers fetched:`, data);
     
     const standardizedChargers = data.chargers.map(station => 
       convertTeamEnergyToStandardFormat(station)

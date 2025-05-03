@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import ChargingMap from '@/components/ChargingMap';
 import FilterPanel from '@/components/FilterPanel';
+import DebugPanel from '@/components/DebugPanel';
 import { ChargingStation, ChargingStationFilters } from '@/types/chargers';
 import { fetchAllChargers } from '@/services/api';
 import { initScheduler } from '@/utils/scheduler';
@@ -81,6 +83,7 @@ const Index: React.FC = () => {
       <Header />
       
       <main className="container mx-auto px-4 pb-8">
+        <DebugPanel />
         <FilterPanel filters={filters} onFiltersChange={setFilters} />
         
         {isLoading ? (
