@@ -1,3 +1,4 @@
+
 import { ChargingStation, PortType, ChargingStatus } from '../types/chargers';
 
 interface TeamEnergyAuth {
@@ -80,8 +81,8 @@ const authenticateEvanCharge = async (): Promise<string> => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: "user@example.com", // These credentials need to be updated
-        password: "password123"
+        phone: "+37493709944",
+        password: "P0ker123$5!"
       })
     });
 
@@ -308,15 +309,15 @@ export const fetchAllChargers = async (): Promise<ChargingStation[]> => {
     const teamEnergyData = await fetchTeamEnergyChargers();
     console.log('Team Energy data received:', teamEnergyData);
     
-    // Temporarily comment out Evan Charge until we have valid credentials
-    // const evanChargeData = await fetchEvanChargeChargers();
-    // console.log('Evan Charge data received:', evanChargeData);
+    // Now fetch Evan Charge data with updated credentials
+    const evanChargeData = await fetchEvanChargeChargers();
+    console.log('Evan Charge data received:', evanChargeData);
 
     const teamEnergyStations = convertTeamEnergyData(teamEnergyData);
     console.log('Converted Team Energy stations:', teamEnergyStations);
     
-    // Temporarily use empty array for Evan Charge
-    const evanChargeStations: ChargingStation[] = []; // convertEvanChargeData(evanChargeData);
+    const evanChargeStations = convertEvanChargeData(evanChargeData);
+    console.log('Converted Evan Charge stations:', evanChargeStations);
     
     // If APIs fail, fall back to mock data
     if (teamEnergyStations.length === 0 && evanChargeStations.length === 0) {
