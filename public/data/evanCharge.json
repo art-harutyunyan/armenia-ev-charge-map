@@ -1,0 +1,47 @@
+
+{
+  "data": [
+    {
+      "id": "ec001",
+      "title": "Evan Charge - Yerevan Mall",
+      "latitude": 40.1722,
+      "longitude": 44.4991,
+      "address": "34 Arshakunyats Ave, Yerevan, Armenia",
+      "connectors": [
+        {
+          "id": "ec001-c1",
+          "connectorType": "TYPE2_SOCKET",
+          "powerKw": 22,
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "ec001-c2",
+          "connectorType": "CCS",
+          "powerKw": 75,
+          "status": "AVAILABLE"
+        }
+      ]
+    },
+    {
+      "id": "ec002",
+      "title": "Evan Charge - Dilijan",
+      "latitude": 40.7414,
+      "longitude": 44.8634,
+      "address": "5 Shahumyan St, Dilijan, Armenia",
+      "connectors": [
+        {
+          "id": "ec002-c1",
+          "connectorType": "CHADEMO",
+          "powerKw": 50,
+          "status": "OFFLINE"
+        },
+        {
+          "id": "ec002-c2",
+          "connectorType": "TYPE2_SOCKET",
+          "powerKw": 22,
+          "status": "AVAILABLE"
+        }
+      ]
+    }
+  ]
+}

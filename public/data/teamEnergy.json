@@ -1,0 +1,41 @@
+
+{
+  "chargers": [
+    {
+      "id": "te001",
+      "name": "Team Energy - Yerevan Center",
+      "latitude": 40.1792,
+      "longitude": 44.5126,
+      "address": "10 Amiryan St, Yerevan, Armenia",
+      "ports": [
+        {
+          "id": "te001-p1",
+          "type": "TYPE2",
+          "power": 22,
+          "status": "AVAILABLE"
+        },
+        {
+          "id": "te001-p2",
+          "type": "CCS",
+          "power": 50,
+          "status": "BUSY"
+        }
+      ]
+    },
+    {
+      "id": "te002",
+      "name": "Team Energy - Gyumri",
+      "latitude": 40.7892,
+      "longitude": 43.8478,
+      "address": "15 Main St, Gyumri, Armenia",
+      "ports": [
+        {
+          "id": "te002-p1",
+          "type": "TYPE2",
+          "power": 11,
+          "status": "AVAILABLE"
+        }
+      ]
+    }
+  ]
+}

@@ -1,80 +1,101 @@
-
 import { ChargingStation } from '@/types/chargers';
-import { authenticateTeamEnergy, fetchTeamEnergyChargers } from './apis/teamEnergy';
-import { authenticateEvanCharge, fetchEvanChargeChargers } from './apis/evanCharge';
 import { mockChargers } from './apis/mockData';
-import { useProxyMode, setProxyMode } from './apis/proxy';
 
+// Function to fetch chargers from local JSON files
 export async function fetchAllChargers(): Promise<ChargingStation[]> {
-  console.log('Starting to fetch all chargers...');
-  let allChargers: ChargingStation[] = [];
-  let useMockData = false;
+  console.log('Fetching chargers from local JSON files...');
   
-  // Use the proxy mode setting for debugging
-  const proxyEnabled = useProxyMode();
-  console.log(`Proxy mode is ${proxyEnabled ? 'enabled' : 'disabled'}`);
-  
-  // Team Energy API Call
   try {
-    const teamEnergyToken = await authenticateTeamEnergy();
-    if (teamEnergyToken.success && teamEnergyToken.data) {
-      const teamEnergyResult = await fetchTeamEnergyChargers(teamEnergyToken.data);
-      if (teamEnergyResult.success && teamEnergyResult.data) {
-        console.log(`Successfully retrieved ${teamEnergyResult.data.length} Team Energy chargers`);
-        allChargers = [...allChargers, ...teamEnergyResult.data];
-      } else {
-        console.error('Failed to fetch Team Energy chargers:', teamEnergyResult.error);
-        useMockData = true;
-      }
-    } else {
-      console.error('Team Energy authentication failed:', teamEnergyToken.error);
-      useMockData = true;
+    // Fetch Team Energy chargers
+    const teamEnergyResponse = await fetch('/data/teamEnergy.json');
+    if (!teamEnergyResponse.ok) {
+      throw new Error(`Failed to fetch Team Energy data: ${teamEnergyResponse.status}`);
     }
+    
+    const teamEnergyData = await teamEnergyResponse.json();
+    const teamEnergyChargers = teamEnergyData.chargers.map((station: any) => ({
+      id: station.id,
+      name: station.name,
+      brand: 'TEAM_ENERGY',
+      latitude: station.latitude,
+      longitude: station.longitude,
+      address: station.address,
+      ports: station.ports.map((port: any) => ({
+        id: port.id,
+        type: mapPortType(port.type),
+        power: port.power,
+        status: mapStatus(port.status)
+      }))
+    }));
+    
+    // Fetch Evan Charge chargers
+    const evanChargeResponse = await fetch('/data/evanCharge.json');
+    if (!evanChargeResponse.ok) {
+      throw new Error(`Failed to fetch Evan Charge data: ${evanChargeResponse.status}`);
+    }
+    
+    const evanChargeData = await evanChargeResponse.json();
+    const evanChargeChargers = evanChargeData.data.map((station: any) => ({
+      id: station.id,
+      name: station.title,
+      brand: 'EVAN_CHARGE',
+      latitude: station.latitude,
+      longitude: station.longitude,
+      address: station.address,
+      ports: station.connectors.map((connector: any) => ({
+        id: connector.id,
+        type: mapPortType(connector.connectorType),
+        power: connector.powerKw,
+        status: mapStatus(connector.status)
+      }))
+    }));
+    
+    // Combine both sources
+    const allChargers = [...teamEnergyChargers, ...evanChargeChargers];
+    console.log(`Retrieved ${allChargers.length} chargers from local JSON files`);
+    
+    return allChargers;
   } catch (error) {
-    console.error('Team Energy API call failed with exception:', error);
-    useMockData = true;
-  }
-
-  // Evan Charge API Call
-  try {
-    const evanChargeToken = await authenticateEvanCharge();
-    if (evanChargeToken.success && evanChargeToken.data) {
-      const evanChargeResult = await fetchEvanChargeChargers(evanChargeToken.data);
-      if (evanChargeResult.success && evanChargeResult.data) {
-        console.log(`Successfully retrieved ${evanChargeResult.data.length} Evan Charge chargers`);
-        allChargers = [...allChargers, ...evanChargeResult.data];
-      } else {
-        console.error('Failed to fetch Evan Charge chargers:', evanChargeResult.error);
-        if (allChargers.length === 0) {
-          useMockData = true;
-        }
-      }
-    } else {
-      console.error('Evan Charge authentication failed:', evanChargeToken.error);
-      if (allChargers.length === 0) {
-        useMockData = true;
-      }
-    }
-  } catch (error) {
-    console.error('Evan Charge API call failed with exception:', error);
-    if (allChargers.length === 0) {
-      useMockData = true;
-    }
-  }
-
-  // Use mock data if both API calls failed
-  if (useMockData) {
-    console.warn('Using mock data due to API failures');
+    console.error('Error fetching chargers from local JSON files:', error);
+    console.warn('Using mock data as fallback');
     return mockChargers;
   }
-
-  console.log(`Returning ${allChargers.length} total chargers`);
-  return allChargers;
 }
 
-// Function to toggle proxy mode for debugging
+// Helper function to map port types to standard format
+function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
+  const type = portType.toUpperCase();
+  
+  if (type.includes('TYPE1') || type.includes('TYPE 1')) {
+    return 'TYPE_1';
+  } else if (type.includes('TYPE2') || type.includes('TYPE 2')) {
+    return 'TYPE_2';
+  } else if (type.includes('CCS')) {
+    return 'CCS';
+  } else if (type.includes('CHADEMO')) {
+    return 'CHADEMO';
+  } else {
+    return 'OTHER';
+  }
+}
+
+// Helper function to map status to standard format
+function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
+  const statusUpper = status.toUpperCase();
+  
+  if (statusUpper.includes('AVAILABLE') || statusUpper.includes('FREE') || statusUpper.includes('IDLE')) {
+    return 'AVAILABLE';
+  } else if (statusUpper.includes('BUSY') || statusUpper.includes('CHARGING') || statusUpper.includes('IN_USE')) {
+    return 'BUSY';
+  } else if (statusUpper.includes('OFFLINE') || statusUpper.includes('OUT_OF_ORDER')) {
+    return 'OFFLINE';
+  } else {
+    return 'UNKNOWN';
+  }
+}
+
+// Function to toggle proxy mode (keeping this for backward compatibility)
 export function toggleProxyMode(): boolean {
-  const newMode = !useProxyMode();
-  setProxyMode(newMode);
-  return newMode;
+  console.log("Proxy mode is no longer needed as we're using local JSON files");
+  return false;
 }
