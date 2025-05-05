@@ -102,7 +102,7 @@ function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE'
 export function refreshData(): Promise<boolean> {
   return new Promise((resolve) => {
     // This is a client-side function that simply refreshes the page
-    // The actual data refresh happens on the server side
+    // The actual data refresh happens on the server side or via the debug panel
     window.location.reload();
     resolve(true);
   });

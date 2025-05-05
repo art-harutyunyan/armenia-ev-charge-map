@@ -2,14 +2,14 @@
 import { ChargingStation } from "@/types/chargers";
 import { ApiResponse, AuthResponse, RawTeamEnergyStation } from "./types";
 import { convertTeamEnergyToStandardFormat } from "@/utils/dataConverters";
-import { proxyFetch } from "./proxy";
 
 const BASE_URL = "https://api.teamenergy.am";
 
 export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
   console.log("Authenticating with Team Energy...");
   try {
-    const response = await proxyFetch(`${BASE_URL}/UserManagement/Login`, {
+    console.log(`Sending auth request to ${BASE_URL}/UserManagement/Login`);
+    const response = await fetch(`${BASE_URL}/UserManagement/Login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,8 +21,8 @@ export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
       }),
     });
 
-    console.log("Team Energy auth response:", response);
-
+    console.log("Team Energy auth response status:", response.status);
+    
     if (!response.ok) {
       const errorText = await response.text();
       console.error("Team Energy auth error:", errorText);
@@ -33,7 +33,7 @@ export async function authenticateTeamEnergy(): Promise<ApiResponse<string>> {
     }
 
     const data: AuthResponse = await response.json();
-    console.log("Team Energy auth successful, token retrieved:", data);
+    console.log("Team Energy auth successful, token retrieved:", data["access_token"]?.substring(0, 10) + "...");
     return { success: true, data: data["access_token"] };
   } catch (error) {
     console.error("Team Energy auth exception:", error);
@@ -46,15 +46,19 @@ export async function fetchTeamEnergyChargers(
 ): Promise<ApiResponse<ChargingStation[]>> {
   console.log("Fetching Team Energy chargers...");
   try {
-    const response = await proxyFetch(`${BASE_URL}/api/v1/charging-stations`, {
-      method: "GET",
+    console.log(`Sending request to ${BASE_URL}/ChargePoint/search`);
+    const response = await fetch(`${BASE_URL}/ChargePoint/search`, {
+      method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        noLatest: 1
+      }),
     });
 
-    console.log("Team Energy chargers response:", response);
+    console.log("Team Energy chargers response status:", response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -66,7 +70,8 @@ export async function fetchTeamEnergyChargers(
     }
 
     const data: { chargers: RawTeamEnergyStation[] } = await response.json();
-    console.log(`Team Energy chargers fetched:`, data);
+    console.log(`Team Energy chargers fetched: ${data.chargers?.length || 0} stations`);
+    console.log("Sample charger data:", data.chargers?.[0]);
 
     const standardizedChargers = data.chargers.map((station) =>
       convertTeamEnergyToStandardFormat(station)

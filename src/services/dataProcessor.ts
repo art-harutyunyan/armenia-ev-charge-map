@@ -7,7 +7,7 @@ import { RawTeamEnergyStation, RawEvanChargeStation } from './apis/types';
 
 // API configurations
 const TEAM_ENERGY_AUTH_URL = 'https://api.teamenergy.am/UserManagement/Login';
-const TEAM_ENERGY_CHARGERS_URL = 'https://api.teamenergy.am/api/v1/charging-stations';
+const TEAM_ENERGY_CHARGERS_URL = 'https://api.teamenergy.am/ChargePoint/search';
 const EVAN_CHARGE_AUTH_URL = 'https://evcharge-api-prod.e-evan.com/api/users/auth/signin';
 const EVAN_CHARGE_CHARGERS_URL = 'https://evcharge-api-prod.e-evan.com/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22';
 
@@ -28,8 +28,11 @@ async function fetchTeamEnergyData() {
       })
     });
 
+    console.log("Team Energy auth response status:", authResponse.status);
+
     if (!authResponse.ok) {
-      throw new Error(`Team Energy authentication failed: ${authResponse.status}`);
+      const errorText = await authResponse.text();
+      throw new Error(`Team Energy authentication failed: ${authResponse.status} - ${errorText}`);
     }
 
     const authData = await authResponse.json();
@@ -39,19 +42,26 @@ async function fetchTeamEnergyData() {
     // Step 2: Fetch chargers
     console.log("Fetching Team Energy chargers...");
     const chargersResponse = await fetch(TEAM_ENERGY_CHARGERS_URL, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        noLatest: 1
+      }),
     });
 
+    console.log("Team Energy chargers response status:", chargersResponse.status);
+
     if (!chargersResponse.ok) {
-      throw new Error(`Team Energy chargers fetch failed: ${chargersResponse.status}`);
+      const errorText = await chargersResponse.text();
+      throw new Error(`Team Energy chargers fetch failed: ${chargersResponse.status} - ${errorText}`);
     }
 
     const chargersData = await chargersResponse.json();
     console.log(`Retrieved ${chargersData.chargers?.length || 0} Team Energy chargers`);
+    console.log("Sample Team Energy charger data:", chargersData.chargers?.[0]);
     
     // Step 3: Save to JSON file
     const dataPath = path.join(process.cwd(), 'public', 'data');
@@ -88,8 +98,11 @@ async function fetchEvanChargeData() {
       })
     });
 
+    console.log("Evan Charge auth response status:", authResponse.status);
+
     if (!authResponse.ok) {
-      throw new Error(`Evan Charge authentication failed: ${authResponse.status}`);
+      const errorText = await authResponse.text();
+      throw new Error(`Evan Charge authentication failed: ${authResponse.status} - ${errorText}`);
     }
 
     const authData = await authResponse.json();
@@ -106,12 +119,16 @@ async function fetchEvanChargeData() {
       }
     });
 
+    console.log("Evan Charge chargers response status:", chargersResponse.status);
+
     if (!chargersResponse.ok) {
-      throw new Error(`Evan Charge chargers fetch failed: ${chargersResponse.status}`);
+      const errorText = await chargersResponse.text();
+      throw new Error(`Evan Charge chargers fetch failed: ${chargersResponse.status} - ${errorText}`);
     }
 
     const chargersData = await chargersResponse.json();
     console.log(`Retrieved ${chargersData?.length || 0} Evan Charge chargers`);
+    console.log("Sample Evan Charge charger data:", chargersData?.[0]);
     
     // Step 3: Save to JSON file
     const dataPath = path.join(process.cwd(), 'public', 'data');
@@ -142,6 +159,8 @@ export async function fetchAndProcessAllData() {
   // Process and convert to standard format if needed
   if (teamEnergyData && evanChargeData) {
     console.log('All data fetched and saved successfully');
+    console.log(`Team Energy: ${teamEnergyData.chargers?.length || 0} chargers`);
+    console.log(`Evan Charge: ${evanChargeData.data?.length || 0} chargers`);
     return { teamEnergyData, evanChargeData };
   } else {
     console.error('One or more data sources failed to fetch');

@@ -1,19 +1,50 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { refreshData } from '@/services/api';
+import { fetchAndProcessAllData } from '@/services/dataProcessor';
 
 const DebugPanel: React.FC = () => {
   const { toast } = useToast();
+  const [isRefreshing, setIsRefreshing] = useState(false);
   
   const handleRefresh = async () => {
+    setIsRefreshing(true);
     toast({
       title: "Refreshing Data",
-      description: "Reloading the page to get the latest data from JSON files.",
+      description: "Fetching latest data from APIs and updating JSON files...",
     });
     
-    await refreshData();
+    try {
+      // This would typically be done server-side, but for demo purposes we're doing it client-side
+      const result = await fetchAndProcessAllData();
+      
+      if (result) {
+        toast({
+          title: "Data Refreshed",
+          description: `Updated data: Team Energy - ${result.teamEnergyData.chargers.length} chargers, Evan Charge - ${result.evanChargeData.data.length} stations.`,
+        });
+      } else {
+        toast({
+          title: "Refresh Failed",
+          description: "Failed to update data. Check console for details.",
+          variant: "destructive"
+        });
+      }
+      
+      // Reload the page to see the updated data
+      await refreshData();
+    } catch (error) {
+      console.error('Error refreshing data:', error);
+      toast({
+        title: "Refresh Failed",
+        description: "An error occurred while refreshing data.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsRefreshing(false);
+    }
   };
   
   return (
@@ -23,11 +54,12 @@ const DebugPanel: React.FC = () => {
         <Button 
           onClick={handleRefresh}
           variant="outline"
+          disabled={isRefreshing}
         >
-          Refresh Data
+          {isRefreshing ? "Refreshing..." : "Refresh Data"}
         </Button>
         <span className="text-sm text-gray-600">
-          Using local JSON files for charging station data. To update the JSON files, run the data processor script.
+          Using local JSON files for charging station data. Click to fetch fresh data from APIs.
         </span>
       </div>
     </div>

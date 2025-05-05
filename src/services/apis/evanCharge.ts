@@ -2,14 +2,14 @@
 import { ChargingStation } from "@/types/chargers";
 import { ApiResponse, AuthResponse, RawEvanChargeStation } from "./types";
 import { convertEvanChargeToStandardFormat } from "@/utils/dataConverters";
-import { proxyFetch } from "./proxy";
 
 const BASE_URL = "https://evcharge-api-prod.e-evan.com";
 
 export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
   console.log("Authenticating with Evan Charge...");
   try {
-    const response = await proxyFetch(`${BASE_URL}/api/users/auth/signin`, {
+    console.log(`Sending auth request to ${BASE_URL}/api/users/auth/signin`);
+    const response = await fetch(`${BASE_URL}/api/users/auth/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
       }),
     });
 
-    console.log("Evan Charge auth response:", response);
+    console.log("Evan Charge auth response status:", response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -32,7 +32,7 @@ export async function authenticateEvanCharge(): Promise<ApiResponse<string>> {
     }
 
     const data: AuthResponse = await response.json();
-    console.log("Evan Charge auth successful, token retrieved:", data);
+    console.log("Evan Charge auth successful, token retrieved:", data.token["accessToken"]?.substring(0, 10) + "...");
     return { success: true, data: data.token["accessToken"] };
   } catch (error) {
     console.error("Evan Charge auth exception:", error);
@@ -45,18 +45,18 @@ export async function fetchEvanChargeChargers(
 ): Promise<ApiResponse<ChargingStation[]>> {
   console.log("Fetching Evan Charge chargers...");
   try {
-    const response = await proxyFetch(
-      `${BASE_URL}/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const url = `${BASE_URL}/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22`;
+    console.log(`Sending request to ${url}`);
+    
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
 
-    console.log("Evan Charge chargers response:", response);
+    console.log("Evan Charge chargers response status:", response.status);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -68,7 +68,8 @@ export async function fetchEvanChargeChargers(
     }
 
     const data: RawEvanChargeStation[] = await response.json();
-    console.log(`Evan Charge chargers fetched:`, data);
+    console.log(`Evan Charge chargers fetched: ${data?.length || 0} stations`);
+    console.log("Sample charger data:", data?.[0]);
 
     const standardizedChargers = data.map((station) =>
       convertEvanChargeToStandardFormat(station)
