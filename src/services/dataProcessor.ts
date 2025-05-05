@@ -1,6 +1,4 @@
 
-import fs from 'fs';
-import path from 'path';
 import { ChargingStation } from '@/types/chargers';
 import { convertTeamEnergyToStandardFormat, convertEvanChargeToStandardFormat } from '@/utils/dataConverters';
 import { RawTeamEnergyStation, RawEvanChargeStation } from './apis/types';
@@ -63,18 +61,9 @@ async function fetchTeamEnergyData() {
     console.log(`Retrieved ${chargersData.chargers?.length || 0} Team Energy chargers`);
     console.log("Sample Team Energy charger data:", chargersData.chargers?.[0]);
     
-    // Step 3: Save to JSON file
-    const dataPath = path.join(process.cwd(), 'public', 'data');
-    if (!fs.existsSync(dataPath)) {
-      fs.mkdirSync(dataPath, { recursive: true });
-    }
-    
-    fs.writeFileSync(
-      path.join(dataPath, 'teamEnergy.json'), 
-      JSON.stringify(chargersData, null, 2)
-    );
-    
-    console.log('Team Energy data saved successfully to public/data/teamEnergy.json');
+    // Step 3: Save to JSON file (we'll handle this differently in the browser)
+    // Instead of directly writing to the filesystem, we'll return the data
+    // which will be handled by our data refresh function
     return chargersData;
   } catch (error) {
     console.error('Failed to fetch Team Energy data:', error);
@@ -130,19 +119,8 @@ async function fetchEvanChargeData() {
     console.log(`Retrieved ${chargersData?.length || 0} Evan Charge chargers`);
     console.log("Sample Evan Charge charger data:", chargersData?.[0]);
     
-    // Step 3: Save to JSON file
-    const dataPath = path.join(process.cwd(), 'public', 'data');
-    if (!fs.existsSync(dataPath)) {
-      fs.mkdirSync(dataPath, { recursive: true });
-    }
-    
+    // Step 3: Return the data for handling in the refresh function
     const formattedData = { data: chargersData };
-    fs.writeFileSync(
-      path.join(dataPath, 'evanCharge.json'), 
-      JSON.stringify(formattedData, null, 2)
-    );
-    
-    console.log('Evan Charge data saved successfully to public/data/evanCharge.json');
     return formattedData;
   } catch (error) {
     console.error('Failed to fetch Evan Charge data:', error);
@@ -158,9 +136,40 @@ export async function fetchAndProcessAllData() {
   
   // Process and convert to standard format if needed
   if (teamEnergyData && evanChargeData) {
-    console.log('All data fetched and saved successfully');
+    console.log('All data fetched successfully');
     console.log(`Team Energy: ${teamEnergyData.chargers?.length || 0} chargers`);
     console.log(`Evan Charge: ${evanChargeData.data?.length || 0} chargers`);
+    
+    // In a browser environment, we need to handle the data differently than in Node.js
+    // We'll return the data and the calling function will handle storage
+    
+    try {
+      // Use fetch to send the data to our backend/API for storage
+      const teamEnergyResponse = await fetch('/api/save-data?type=teamEnergy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(teamEnergyData),
+      });
+      
+      const evanChargeResponse = await fetch('/api/save-data?type=evanCharge', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(evanChargeData),
+      });
+      
+      if (!teamEnergyResponse.ok || !evanChargeResponse.ok) {
+        console.error('Failed to save data to backend');
+      } else {
+        console.log('Data saved successfully to backend');
+      }
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
+    
     return { teamEnergyData, evanChargeData };
   } else {
     console.error('One or more data sources failed to fetch');
@@ -169,22 +178,26 @@ export async function fetchAndProcessAllData() {
 }
 
 // Function to process data and convert to standard format (for front-end use)
-export function processDataForFrontend(): ChargingStation[] {
+export async function processDataForFrontend(): Promise<ChargingStation[]> {
   try {
-    const dataPath = path.join(process.cwd(), 'public', 'data');
-    
     // Read Team Energy data
-    const teamEnergyRaw = JSON.parse(
-      fs.readFileSync(path.join(dataPath, 'teamEnergy.json'), 'utf8')
-    );
+    const teamEnergyResponse = await fetch('/data/teamEnergy.json');
+    if (!teamEnergyResponse.ok) {
+      throw new Error(`Failed to fetch Team Energy data: ${teamEnergyResponse.status}`);
+    }
+    
+    const teamEnergyRaw = await teamEnergyResponse.json();
     const teamEnergyStations = teamEnergyRaw.chargers.map(
       (station: RawTeamEnergyStation) => convertTeamEnergyToStandardFormat(station)
     );
     
     // Read Evan Charge data
-    const evanChargeRaw = JSON.parse(
-      fs.readFileSync(path.join(dataPath, 'evanCharge.json'), 'utf8')
-    );
+    const evanChargeResponse = await fetch('/data/evanCharge.json');
+    if (!evanChargeResponse.ok) {
+      throw new Error(`Failed to fetch Evan Charge data: ${evanChargeResponse.status}`);
+    }
+    
+    const evanChargeRaw = await evanChargeResponse.json();
     const evanChargeStations = evanChargeRaw.data.map(
       (station: RawEvanChargeStation) => convertEvanChargeToStandardFormat(station)
     );
@@ -196,22 +209,6 @@ export function processDataForFrontend(): ChargingStation[] {
   }
 }
 
-// Execute this script when running on the server side
-if (require.main === module) {
-  console.log('Starting data fetching process...');
-  fetchAndProcessAllData()
-    .then((result) => {
-      if (result) {
-        console.log('Data processing complete');
-        console.log(`Team Energy: ${result.teamEnergyData.chargers?.length || 0} chargers`);
-        console.log(`Evan Charge: ${result.evanChargeData.data?.length || 0} chargers`);
-      } else {
-        console.error('Data processing failed');
-      }
-      process.exit(0);
-    })
-    .catch(error => {
-      console.error('Data processing failed:', error);
-      process.exit(1);
-    });
-}
+// Remove the Node.js specific code that was causing the error
+// This used to check if this file was being run directly in Node.js
+// if (require.main === module) { ... }

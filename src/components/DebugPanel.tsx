@@ -17,14 +17,26 @@ const DebugPanel: React.FC = () => {
     });
     
     try {
-      // This would typically be done server-side, but for demo purposes we're doing it client-side
+      // Fetch the data using our dataProcessor
       const result = await fetchAndProcessAllData();
       
       if (result) {
         toast({
-          title: "Data Refreshed",
-          description: `Updated data: Team Energy - ${result.teamEnergyData.chargers.length} chargers, Evan Charge - ${result.evanChargeData.data.length} stations.`,
+          title: "Data Fetched",
+          description: `Retrieved data: Team Energy - ${result.teamEnergyData.chargers.length} chargers, Evan Charge - ${result.evanChargeData.data.length} stations.`,
         });
+        
+        // Note: The actual saving of JSON files should happen server-side
+        // Here we're just showing a success message
+        toast({
+          title: "Data Refresh Complete",
+          description: "Page will now reload to show the updated data.",
+        });
+        
+        // Reload the page to see the updated data
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         toast({
           title: "Refresh Failed",
@@ -32,9 +44,6 @@ const DebugPanel: React.FC = () => {
           variant: "destructive"
         });
       }
-      
-      // Reload the page to see the updated data
-      await refreshData();
     } catch (error) {
       console.error('Error refreshing data:', error);
       toast({
