@@ -1,3 +1,4 @@
+
 import { ChargingStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
 
@@ -13,6 +14,8 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     }
     
     const teamEnergyData = await teamEnergyResponse.json();
+    console.log(`Retrieved ${teamEnergyData.chargers?.length || 0} Team Energy chargers from JSON`);
+    
     const teamEnergyChargers = teamEnergyData.chargers.map((station: any) => ({
       id: station.id,
       name: station.name,
@@ -35,6 +38,8 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     }
     
     const evanChargeData = await evanChargeResponse.json();
+    console.log(`Retrieved ${evanChargeData.data?.length || 0} Evan Charge chargers from JSON`);
+    
     const evanChargeChargers = evanChargeData.data.map((station: any) => ({
       id: station.id,
       name: station.title,
@@ -52,7 +57,7 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     
     // Combine both sources
     const allChargers = [...teamEnergyChargers, ...evanChargeChargers];
-    console.log(`Retrieved ${allChargers.length} chargers from local JSON files`);
+    console.log(`Total: ${allChargers.length} chargers loaded from local JSON files`);
     
     return allChargers;
   } catch (error) {
@@ -64,7 +69,7 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
 
 // Helper function to map port types to standard format
 function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
-  const type = portType.toUpperCase();
+  const type = String(portType).toUpperCase();
   
   if (type.includes('TYPE1') || type.includes('TYPE 1')) {
     return 'TYPE_1';
@@ -81,7 +86,7 @@ function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' 
 
 // Helper function to map status to standard format
 function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
-  const statusUpper = status.toUpperCase();
+  const statusUpper = String(status).toUpperCase();
   
   if (statusUpper.includes('AVAILABLE') || statusUpper.includes('FREE') || statusUpper.includes('IDLE')) {
     return 'AVAILABLE';
@@ -94,8 +99,11 @@ function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE'
   }
 }
 
-// Function to toggle proxy mode (keeping this for backward compatibility)
-export function toggleProxyMode(): boolean {
-  console.log("Proxy mode is no longer needed as we're using local JSON files");
-  return false;
+export function refreshData(): Promise<boolean> {
+  return new Promise((resolve) => {
+    // This is a client-side function that simply refreshes the page
+    // The actual data refresh happens on the server side
+    window.location.reload();
+    resolve(true);
+  });
 }
