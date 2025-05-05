@@ -1,3 +1,4 @@
+
 import { ChargingStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
 
