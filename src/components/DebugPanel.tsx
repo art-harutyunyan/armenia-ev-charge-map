@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { refreshData } from '@/services/api';
-import { fetchAndProcessAllData } from '@/services/dataProcessor';
 
 const DebugPanel: React.FC = () => {
   const { toast } = useToast();
@@ -13,24 +12,17 @@ const DebugPanel: React.FC = () => {
     setIsRefreshing(true);
     toast({
       title: "Refreshing Data",
-      description: "Fetching latest data from APIs and updating JSON files...",
+      description: "Requesting backend to fetch latest data from APIs...",
     });
     
     try {
-      // Fetch the data using our dataProcessor
-      const result = await fetchAndProcessAllData();
+      // Trigger a refresh on the backend
+      const success = await refreshData();
       
-      if (result) {
-        toast({
-          title: "Data Fetched",
-          description: `Retrieved data: Team Energy - ${result.teamEnergyData.chargers.length} chargers, Evan Charge - ${result.evanChargeData.data.length} stations.`,
-        });
-        
-        // Note: The actual saving of JSON files should happen server-side
-        // Here we're just showing a success message
+      if (success) {
         toast({
           title: "Data Refresh Complete",
-          description: "Page will now reload to show the updated data.",
+          description: "Backend has successfully updated JSON data files. Reloading page to show the updates.",
         });
         
         // Reload the page to see the updated data
@@ -40,7 +32,7 @@ const DebugPanel: React.FC = () => {
       } else {
         toast({
           title: "Refresh Failed",
-          description: "Failed to update data. Check console for details.",
+          description: "Failed to update data. Check server logs for details.",
           variant: "destructive"
         });
       }
@@ -68,7 +60,7 @@ const DebugPanel: React.FC = () => {
           {isRefreshing ? "Refreshing..." : "Refresh Data"}
         </Button>
         <span className="text-sm text-gray-600">
-          Using local JSON files for charging station data. Click to fetch fresh data from APIs.
+          Click to fetch fresh data from APIs via the backend server.
         </span>
       </div>
     </div>

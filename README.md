@@ -3,56 +3,73 @@
 
 This application displays electric vehicle charging stations across Armenia on an interactive map.
 
+## Project Structure
+
+The project consists of:
+
+- A React frontend for displaying the charging stations on a map
+- A Node.js backend server for fetching and storing data from the APIs
+
 ## Data Sources
 
 The application uses data from two API providers:
 - Team Energy
 - Evan Charge
 
-## How to Update JSON Data
+## Running the Application
 
-To update the charging station data:
+### Backend Server
 
-1. Run the data processor script:
+First, start the backend server:
 
 ```bash
-# Navigate to the project root
-cd [project-directory]
+# Navigate to server directory
+cd server
 
-# Run the data processor script
-node -r ts-node/register src/services/dataProcessor.ts
+# Install dependencies
+npm install
+
+# Start the server
+npm start
 ```
 
-This will:
-- Fetch fresh data from Team Energy and Evan Charge APIs
-- Process the data and save it to JSON files in the `public/data` directory
-- The frontend will then read from these local JSON files
+The server will run on port 3001 by default.
 
-You can also use the "Refresh Data" button in the Debug Panel on the application, which will execute the data update process directly from the browser.
+### Frontend Application
 
-## API Endpoints Used
+In another terminal, start the frontend:
 
-### Team Energy
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+## How the Data Flow Works
+
+1. The backend server fetches data from Team Energy and Evan Charge APIs
+2. The data is stored as JSON files in the `public/data` directory
+3. The frontend reads this data to display the charging stations on the map
+4. The "Refresh Data" button in the Debug Panel triggers the backend to fetch fresh data
+
+## API Endpoints
+
+### Backend API:
+
+- `GET /api/data` - Get the current charging station data
+- `GET /api/refresh` - Trigger a refresh of data from the source APIs
+
+### External APIs:
+
+#### Team Energy
 - Authentication: `https://api.teamenergy.am/UserManagement/Login`
 - Chargers: `https://api.teamenergy.am/ChargePoint/search` (POST with body: `{"noLatest": 1}`)
 
-### Evan Charge
+#### Evan Charge
 - Authentication: `https://evcharge-api-prod.e-evan.com/api/users/auth/signin`
 - Chargers: `https://evcharge-api-prod.e-evan.com/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22`
-
-## Development
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
 
 ## Features
 
@@ -64,3 +81,4 @@ npm run dev
 ## Configuration
 
 The Mapbox token is configured in `src/config/mapbox.ts`.
+

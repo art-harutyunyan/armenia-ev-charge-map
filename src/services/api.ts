@@ -1,20 +1,25 @@
-
 import { ChargingStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
 
+// API base URL - change this to your production URL when deploying
+const API_BASE_URL = 'http://localhost:3001';
+
 // Function to fetch chargers from local JSON files
 export async function fetchAllChargers(): Promise<ChargingStation[]> {
-  console.log('Fetching chargers from local JSON files...');
+  console.log('Fetching chargers from backend JSON files...');
   
   try {
-    // Fetch Team Energy chargers
-    const teamEnergyResponse = await fetch('/data/teamEnergy.json');
-    if (!teamEnergyResponse.ok) {
-      throw new Error(`Failed to fetch Team Energy data: ${teamEnergyResponse.status}`);
+    // Fetch data from backend API
+    const response = await fetch(`${API_BASE_URL}/api/data`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
     }
     
-    const teamEnergyData = await teamEnergyResponse.json();
-    console.log(`Retrieved ${teamEnergyData.chargers?.length || 0} Team Energy chargers from JSON`);
+    const data = await response.json();
+    console.log('Backend data response:', data);
+    
+    const teamEnergyData = data.teamEnergy;
+    console.log(`Retrieved ${teamEnergyData.chargers?.length || 0} Team Energy chargers from backend`);
     
     const teamEnergyChargers = teamEnergyData.chargers.map((station: any) => ({
       id: station.id,
@@ -31,14 +36,8 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
       }))
     }));
     
-    // Fetch Evan Charge chargers
-    const evanChargeResponse = await fetch('/data/evanCharge.json');
-    if (!evanChargeResponse.ok) {
-      throw new Error(`Failed to fetch Evan Charge data: ${evanChargeResponse.status}`);
-    }
-    
-    const evanChargeData = await evanChargeResponse.json();
-    console.log(`Retrieved ${evanChargeData.data?.length || 0} Evan Charge chargers from JSON`);
+    const evanChargeData = data.evanCharge;
+    console.log(`Retrieved ${evanChargeData.data?.length || 0} Evan Charge chargers from backend`);
     
     const evanChargeChargers = evanChargeData.data.map((station: any) => ({
       id: station.id,
@@ -57,11 +56,11 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     
     // Combine both sources
     const allChargers = [...teamEnergyChargers, ...evanChargeChargers];
-    console.log(`Total: ${allChargers.length} chargers loaded from local JSON files`);
+    console.log(`Total: ${allChargers.length} chargers loaded from backend`);
     
     return allChargers;
   } catch (error) {
-    console.error('Error fetching chargers from local JSON files:', error);
+    console.error('Error fetching chargers from backend:', error);
     console.warn('Using mock data as fallback');
     return mockChargers;
   }
@@ -99,11 +98,22 @@ function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE'
   }
 }
 
-export function refreshData(): Promise<boolean> {
-  return new Promise((resolve) => {
-    // This is a client-side function that simply refreshes the page
-    // The actual data refresh happens on the server side or via the debug panel
-    window.location.reload();
-    resolve(true);
-  });
+// Function to trigger a data refresh from the backend
+export async function refreshData(): Promise<boolean> {
+  console.log('Requesting backend to refresh data from APIs...');
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/refresh`);
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Data refresh failed: ${response.status} ${errorText}`);
+    }
+    
+    const result = await response.json();
+    console.log('Data refresh result:', result);
+    
+    return result.success;
+  } catch (error) {
+    console.error('Error refreshing data:', error);
+    return false;
+  }
 }
