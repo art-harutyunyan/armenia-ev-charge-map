@@ -34,7 +34,7 @@ async function fetchTeamEnergyData() {
       };
     }
 
-    const accessToken = authResponse.access_token;
+    const accessToken = authResponse.data.access_token;
     console.log("Team Energy authentication successful, token retrieved");
 
     // Fetch chargers
@@ -69,7 +69,7 @@ async function fetchTeamEnergyData() {
     );
 
     // Convert to the new structure
-    const convertedChargers = rawData.chargers.map((station) => ({
+    const convertedChargers = rawData.data.map((station) => ({
       chargePointId: station.chargePointId,
       name: station.name,
       latitude: station.latitude,
