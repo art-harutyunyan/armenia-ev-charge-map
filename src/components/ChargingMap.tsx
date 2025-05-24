@@ -78,6 +78,34 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
     }
   }, [toast]);
 
+  // Function to get status color
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'AVAILABLE':
+        return 'text-green-600';
+      case 'BUSY':
+        return 'text-red-600';
+      case 'OFFLINE':
+        return 'text-gray-600';
+      default:
+        return 'text-yellow-600';
+    }
+  };
+
+  // Function to get status icon
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'AVAILABLE':
+        return '✅';
+      case 'BUSY':
+        return '🔴';
+      case 'OFFLINE':
+        return '⚫';
+      default:
+        return '🟡';
+    }
+  };
+
   // Add markers for stations when map is initialized and stations are loaded
   useEffect(() => {
     if (!map.current || !mapInitialized) return;
@@ -98,49 +126,61 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         markerElement.className += ' team-energy-marker';
         markerElement.innerHTML = `
           <div class="w-10 h-10 rounded-full bg-white p-1 shadow-lg flex items-center justify-center">
-            <div class="w-8 h-8 rounded-full bg-team-energy flex items-center justify-center text-white font-bold">TE</div>
+            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">TE</div>
           </div>
         `;
       } else {
         markerElement.className += ' evan-charge-marker';
         markerElement.innerHTML = `
           <div class="w-10 h-10 rounded-full bg-white p-1 shadow-lg flex items-center justify-center">
-            <div class="w-8 h-8 rounded-full bg-evan-charge flex items-center justify-center text-white font-bold">EC</div>
+            <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xs">EC</div>
           </div>
         `;
       }
+
+      // Create enhanced popup content
+      const popupContent = `
+        <div class="p-3 max-w-sm">
+          <h3 class="font-bold text-lg mb-2">${station.name}</h3>
+          <p class="text-sm text-gray-600 mb-3">${station.address}</p>
+          
+          <div class="mb-3">
+            <h4 class="font-semibold mb-2">Available Connectors:</h4>
+            <div class="space-y-2">
+              ${station.ports
+                .map(port => `
+                  <div class="border rounded p-2 bg-gray-50">
+                    <div class="flex justify-between items-center mb-1">
+                      <span class="font-medium">${port.type}</span>
+                      <span class="${getStatusColor(port.status)} font-bold">
+                        ${getStatusIcon(port.status)} ${port.status}
+                      </span>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                      <div>Power: ${port.power} kW</div>
+                    </div>
+                  </div>
+                `)
+                .join('')
+              }
+            </div>
+          </div>
+          
+          <div class="text-xs text-gray-500 mt-2">
+            Brand: ${station.brand === 'TEAM_ENERGY' ? 'Team Energy' : 'Evan Charge'}
+          </div>
+        </div>
+      `;
 
       // Create marker and popup
       const marker = new mapboxgl.Marker(markerElement)
         .setLngLat([station.longitude, station.latitude])
         .setPopup(
-          new mapboxgl.Popup({ offset: 25 })
-            .setHTML(`
-              <div class="p-2">
-                <h3 class="font-bold text-lg">${station.name}</h3>
-                <p class="text-sm">${station.address}</p>
-                <div class="mt-2">
-                  <h4 class="font-semibold">Available Ports:</h4>
-                  <ul class="list-disc pl-5">
-                    ${station.ports
-                      .map(port => `
-                        <li>
-                          ${port.type} - ${port.power} kW
-                          <span class="${
-                            port.status === 'AVAILABLE' ? 'text-green-600' : 
-                            port.status === 'BUSY' ? 'text-red-600' : 
-                            port.status === 'OFFLINE' ? 'text-gray-600' : 'text-yellow-600'
-                          }">
-                            (${port.status})
-                          </span>
-                        </li>
-                      `)
-                      .join('')
-                    }
-                  </ul>
-                </div>
-              </div>
-            `)
+          new mapboxgl.Popup({ 
+            offset: 25,
+            maxWidth: '400px'
+          })
+            .setHTML(popupContent)
         )
         .addTo(map.current!);
 

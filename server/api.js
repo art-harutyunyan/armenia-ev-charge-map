@@ -7,7 +7,7 @@ const TEAM_ENERGY_CHARGERS_URL = 'https://api.teamenergy.am/ChargePoint/search';
 const EVAN_CHARGE_AUTH_URL = 'https://evcharge-api-prod.e-evan.com/api/users/auth/signin';
 const EVAN_CHARGE_CHARGERS_URL = 'https://evcharge-api-prod.e-evan.com/api/stations/stations?_limit=1000&_offset=0&includePricing=is_equal:%22true%22';
 
-// Fetch and process Team Energy data
+// Fetch and process Team Energy data with new structure
 async function fetchTeamEnergyData() {
   try {
     console.log("Authenticating with Team Energy API...");
@@ -51,16 +51,45 @@ async function fetchTeamEnergyData() {
       };
     }
 
-    const chargersData = chargersResponse.data;
-    console.log(`Retrieved ${chargersData.chargers?.length || 0} Team Energy chargers`);
+    const rawData = chargersResponse.data;
+    console.log(`Retrieved ${rawData.chargers?.length || 0} Team Energy chargers`);
     
-    if (chargersData.chargers && chargersData.chargers.length > 0) {
-      console.log("Sample Team Energy charger:", JSON.stringify(chargersData.chargers[0], null, 2));
-    }
+    // Convert to the new structure
+    const convertedChargers = rawData.chargers.map(station => ({
+      chargePointId: station.chargePointId,
+      name: station.name,
+      latitude: station.latitude,
+      longitude: station.longitude,
+      address: station.address,
+      phone: station.phone || "",
+      chargePointInfos: station.chargePointInfos.map(info => ({
+        chargePointId: info.chargePointId,
+        isSeperated: info.isSeperated,
+        stationNumber: info.stationNumber,
+        connectors: info.connectors.map(connector => ({
+          connectorId: connector.connectorId,
+          key: connector.key,
+          connectorType: connector.connectorType,
+          connectorTypeGroup: connector.connectorTypeGroup,
+          power: connector.power,
+          statusDescription: connector.statusDescription,
+          status: connector.status,
+          isPrepairing: connector.isPrepairing,
+          price: connector.price,
+          stateOfBattery: connector.stateOfBattery
+        }))
+      }))
+    }));
+
+    const formattedData = {
+      chargers: convertedChargers
+    };
+
+    console.log("Sample converted Team Energy charger:", JSON.stringify(convertedChargers[0], null, 2));
 
     return {
       success: true,
-      data: chargersData
+      data: formattedData
     };
   } catch (error) {
     console.error('Failed to fetch Team Energy data:', error.message);
