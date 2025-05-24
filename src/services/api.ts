@@ -1,11 +1,44 @@
 
 import { ChargingStation } from '@/types/chargers';
+import { TeamEnergyStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
 
 // API base URL - change this to your production URL when deploying
 const API_BASE_URL = 'http://localhost:3001';
 
-// Function to fetch chargers from local JSON files
+// Helper function to map TeamEnergy connector types to standard format
+function mapTeamEnergyPortType(connectorType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
+  const type = String(connectorType).toUpperCase();
+  
+  if (type.includes('TYPE1') || type.includes('TYPE 1')) {
+    return 'TYPE_1';
+  } else if (type.includes('TYPE2') || type.includes('TYPE 2')) {
+    return 'TYPE_2';
+  } else if (type.includes('CCS') || type.includes('TESLA')) {
+    return 'CCS';
+  } else if (type.includes('CHADEMO')) {
+    return 'CHADEMO';
+  } else {
+    return 'OTHER';
+  }
+}
+
+// Helper function to map TeamEnergy status to standard format
+function mapTeamEnergyStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
+  const statusNum = parseInt(status);
+  
+  if (statusNum === 1) {
+    return 'AVAILABLE';
+  } else if (statusNum === 6) {
+    return 'BUSY';
+  } else if (statusNum === 0) {
+    return 'OFFLINE';
+  } else {
+    return 'UNKNOWN';
+  }
+}
+
+// Function to fetch chargers from backend
 export async function fetchAllChargers(): Promise<ChargingStation[]> {
   console.log('Fetching chargers from backend JSON files...');
   
@@ -22,20 +55,28 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     const teamEnergyData = data.teamEnergy;
     console.log(`Retrieved ${teamEnergyData.chargers?.length || 0} Team Energy chargers from backend`);
     
-    const teamEnergyChargers = teamEnergyData.chargers.map((station: any) => ({
-      id: station.id,
-      name: station.name,
-      brand: 'TEAM_ENERGY',
-      latitude: station.latitude,
-      longitude: station.longitude,
-      address: station.address,
-      ports: station.ports.map((port: any) => ({
-        id: port.id,
-        type: mapPortType(port.type),
-        power: port.power,
-        status: mapStatus(port.status)
-      }))
-    }));
+    // Convert TeamEnergy stations to standard format
+    const teamEnergyChargers: ChargingStation[] = teamEnergyData.chargers.map((station: TeamEnergyStation) => {
+      // Collect all connectors from all charge point infos
+      const allPorts = station.chargePointInfos.flatMap(info => 
+        info.connectors.map(connector => ({
+          id: connector.connectorId,
+          type: mapTeamEnergyPortType(connector.connectorType),
+          power: connector.power,
+          status: mapTeamEnergyStatus(connector.status)
+        }))
+      );
+
+      return {
+        id: station.chargePointId,
+        name: station.name,
+        brand: 'TEAM_ENERGY' as const,
+        latitude: station.latitude,
+        longitude: station.longitude,
+        address: station.address,
+        ports: allPorts
+      };
+    });
     
     const evanChargeData = data.evanCharge;
     console.log(`Retrieved ${evanChargeData.data?.length || 0} Evan Charge chargers from backend`);
@@ -43,7 +84,7 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     const evanChargeChargers = evanChargeData.data.map((station: any) => ({
       id: station.id,
       name: station.title,
-      brand: 'EVAN_CHARGE',
+      brand: 'EVAN_CHARGE' as const,
       latitude: station.latitude,
       longitude: station.longitude,
       address: station.address,
@@ -67,7 +108,7 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
   }
 }
 
-// Helper function to map port types to standard format
+// Helper function to map port types to standard format (for EvanCharge)
 function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
   const type = String(portType).toUpperCase();
   
@@ -84,7 +125,7 @@ function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' 
   }
 }
 
-// Helper function to map status to standard format
+// Helper function to map status to standard format (for EvanCharge)
 function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
   const statusUpper = String(status).toUpperCase();
   

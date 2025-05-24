@@ -35,3 +35,34 @@ export interface ChargingStationFilters {
   maxPower: number;
   status: ChargingStatus[];
 }
+
+// New TeamEnergy specific types
+export interface TeamEnergyConnector {
+  connectorId: string;
+  key: string;
+  connectorType: string;
+  connectorTypeGroup: string;
+  power: number;
+  statusDescription: string;
+  status: string;
+  isPrepairing: boolean;
+  price: number;
+  stateOfBattery: number;
+}
+
+export interface TeamEnergyChargePointInfo {
+  chargePointId: string;
+  isSeperated: boolean;
+  stationNumber: string;
+  connectors: TeamEnergyConnector[];
+}
+
+export interface TeamEnergyStation {
+  chargePointId: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+  address: string;
+  phone: string;
+  chargePointInfos: TeamEnergyChargePointInfo[];
+}

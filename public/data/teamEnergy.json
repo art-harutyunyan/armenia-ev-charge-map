@@ -2,38 +2,72 @@
 {
   "chargers": [
     {
-      "id": "te001",
+      "chargePointId": "te001",
       "name": "Team Energy - Yerevan Center",
       "latitude": 40.1792,
       "longitude": 44.5126,
       "address": "10 Amiryan St, Yerevan, Armenia",
-      "ports": [
+      "phone": "+37410300100",
+      "chargePointInfos": [
         {
-          "id": "te001-p1",
-          "type": "TYPE2",
-          "power": 22,
-          "status": "AVAILABLE"
-        },
-        {
-          "id": "te001-p2",
-          "type": "CCS",
-          "power": 50,
-          "status": "BUSY"
+          "chargePointId": "MT0065",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "ff7d6ff8-c41c-4aef-8d33-014ce780a5ca",
+              "key": "MT00651",
+              "connectorType": "TYPE2",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "c125c807-c6f7-48db-bb6c-fb4ca8621da1",
+              "key": "MT00652",
+              "connectorType": "CCS1",
+              "connectorTypeGroup": "DC",
+              "power": 50,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 98
+            }
+          ]
         }
       ]
     },
     {
-      "id": "te002",
+      "chargePointId": "te002",
       "name": "Team Energy - Gyumri",
       "latitude": 40.7892,
       "longitude": 43.8478,
       "address": "15 Main St, Gyumri, Armenia",
-      "ports": [
+      "phone": "+37410300100",
+      "chargePointInfos": [
         {
-          "id": "te002-p1",
-          "type": "TYPE2",
-          "power": 11,
-          "status": "AVAILABLE"
+          "chargePointId": "MT0066",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "aa7d6ff8-c41c-4aef-8d33-014ce780a5ca",
+              "key": "MT00661",
+              "connectorType": "TYPE2",
+              "connectorTypeGroup": "AC",
+              "power": 11,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 100,
+              "stateOfBattery": 0
+            }
+          ]
         }
       ]
     }
