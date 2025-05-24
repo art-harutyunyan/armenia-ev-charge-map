@@ -117,6 +117,8 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
 
     // Add markers for filtered stations
     filteredStations.forEach(station => {
+      console.log('Adding marker for station:', station.name, 'at', station.latitude, station.longitude);
+      
       // Create custom marker element
       const markerElement = document.createElement('div');
       markerElement.className = 'custom-marker';
@@ -125,39 +127,42 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
       if (station.brand === 'TEAM_ENERGY') {
         markerElement.className += ' team-energy-marker';
         markerElement.innerHTML = `
-          <div class="w-10 h-10 rounded-full bg-white p-1 shadow-lg flex items-center justify-center">
-            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">TE</div>
+          <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 border-blue-500">
+            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">TE</div>
           </div>
         `;
       } else {
         markerElement.className += ' evan-charge-marker';
         markerElement.innerHTML = `
-          <div class="w-10 h-10 rounded-full bg-white p-1 shadow-lg flex items-center justify-center">
-            <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-xs">EC</div>
+          <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 border-green-500">
+            <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-sm">EC</div>
           </div>
         `;
       }
 
       // Create enhanced popup content
       const popupContent = `
-        <div class="p-3 max-w-sm">
-          <h3 class="font-bold text-lg mb-2">${station.name}</h3>
+        <div class="p-4 max-w-sm">
+          <h3 class="font-bold text-lg mb-2 text-blue-800">${station.name}</h3>
           <p class="text-sm text-gray-600 mb-3">${station.address}</p>
           
           <div class="mb-3">
-            <h4 class="font-semibold mb-2">Available Connectors:</h4>
+            <h4 class="font-semibold mb-2 text-gray-800">Available Connectors:</h4>
             <div class="space-y-2">
               ${station.ports
                 .map(port => `
-                  <div class="border rounded p-2 bg-gray-50">
-                    <div class="flex justify-between items-center mb-1">
-                      <span class="font-medium">${port.type}</span>
+                  <div class="border rounded-lg p-3 bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                      <span class="font-medium text-gray-800">${port.type}</span>
                       <span class="${getStatusColor(port.status)} font-bold">
                         ${getStatusIcon(port.status)} ${port.status}
                       </span>
                     </div>
                     <div class="text-sm text-gray-600">
-                      <div>Power: ${port.power} kW</div>
+                      <div class="flex justify-between">
+                        <span>Power:</span>
+                        <span class="font-medium">${port.power} kW</span>
+                      </div>
                     </div>
                   </div>
                 `)
@@ -166,8 +171,9 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
             </div>
           </div>
           
-          <div class="text-xs text-gray-500 mt-2">
-            Brand: ${station.brand === 'TEAM_ENERGY' ? 'Team Energy' : 'Evan Charge'}
+          <div class="text-xs text-gray-500 mt-3 pt-2 border-t">
+            <div>Brand: ${station.brand === 'TEAM_ENERGY' ? 'Team Energy' : 'Evan Charge'}</div>
+            <div>Station ID: ${station.id}</div>
           </div>
         </div>
       `;
@@ -178,7 +184,8 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         .setPopup(
           new mapboxgl.Popup({ 
             offset: 25,
-            maxWidth: '400px'
+            maxWidth: '400px',
+            className: 'custom-popup'
           })
             .setHTML(popupContent)
         )

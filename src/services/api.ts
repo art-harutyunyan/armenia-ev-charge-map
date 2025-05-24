@@ -18,6 +18,8 @@ function mapTeamEnergyPortType(connectorType: string): 'TYPE_1' | 'TYPE_2' | 'CC
     return 'CCS';
   } else if (type.includes('CHADEMO')) {
     return 'CHADEMO';
+  } else if (type.includes('GB/T')) {
+    return 'CCS'; // Map GB/T to CCS for now
   } else {
     return 'OTHER';
   }
@@ -40,12 +42,13 @@ function mapTeamEnergyStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' |
 
 // Function to fetch chargers from backend
 export async function fetchAllChargers(): Promise<ChargingStation[]> {
-  console.log('Fetching chargers from backend JSON files...');
+  console.log('Fetching chargers from backend...');
   
   try {
     // Fetch data from backend API
     const response = await fetch(`${API_BASE_URL}/api/data`);
     if (!response.ok) {
+      console.error(`Backend fetch failed: ${response.status} ${response.statusText}`);
       throw new Error(`Failed to fetch data: ${response.status}`);
     }
     
@@ -53,10 +56,12 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     console.log('Backend data response:', data);
     
     const teamEnergyData = data.teamEnergy;
-    console.log(`Retrieved ${teamEnergyData.chargers?.length || 0} Team Energy chargers from backend`);
+    console.log(`Retrieved ${teamEnergyData.length || 0} Team Energy chargers from backend`);
     
     // Convert TeamEnergy stations to standard format
-    const teamEnergyChargers: ChargingStation[] = teamEnergyData.chargers.map((station: TeamEnergyStation) => {
+    const teamEnergyChargers: ChargingStation[] = teamEnergyData.map((station: TeamEnergyStation) => {
+      console.log('Processing station:', station.name);
+      
       // Collect all connectors from all charge point infos
       const allPorts = station.chargePointInfos.flatMap(info => 
         info.connectors.map(connector => ({
@@ -78,23 +83,10 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
       };
     });
     
-    const evanChargeData = data.evanCharge;
-    console.log(`Retrieved ${evanChargeData.data?.length || 0} Evan Charge chargers from backend`);
+    console.log(`Converted ${teamEnergyChargers.length} Team Energy stations`);
     
-    const evanChargeChargers = evanChargeData.data.map((station: any) => ({
-      id: station.id,
-      name: station.title,
-      brand: 'EVAN_CHARGE' as const,
-      latitude: station.latitude,
-      longitude: station.longitude,
-      address: station.address,
-      ports: station.connectors.map((connector: any) => ({
-        id: connector.id,
-        type: mapPortType(connector.connectorType),
-        power: connector.powerKw,
-        status: mapStatus(connector.status)
-      }))
-    }));
+    // For now, skip EvanCharge data processing since we're focusing on TeamEnergy
+    const evanChargeChargers: ChargingStation[] = [];
     
     // Combine both sources
     const allChargers = [...teamEnergyChargers, ...evanChargeChargers];
@@ -105,38 +97,6 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     console.error('Error fetching chargers from backend:', error);
     console.warn('Using mock data as fallback');
     return mockChargers;
-  }
-}
-
-// Helper function to map port types to standard format (for EvanCharge)
-function mapPortType(portType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
-  const type = String(portType).toUpperCase();
-  
-  if (type.includes('TYPE1') || type.includes('TYPE 1')) {
-    return 'TYPE_1';
-  } else if (type.includes('TYPE2') || type.includes('TYPE 2')) {
-    return 'TYPE_2';
-  } else if (type.includes('CCS')) {
-    return 'CCS';
-  } else if (type.includes('CHADEMO')) {
-    return 'CHADEMO';
-  } else {
-    return 'OTHER';
-  }
-}
-
-// Helper function to map status to standard format (for EvanCharge)
-function mapStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
-  const statusUpper = String(status).toUpperCase();
-  
-  if (statusUpper.includes('AVAILABLE') || statusUpper.includes('FREE') || statusUpper.includes('IDLE')) {
-    return 'AVAILABLE';
-  } else if (statusUpper.includes('BUSY') || statusUpper.includes('CHARGING') || statusUpper.includes('IN_USE')) {
-    return 'BUSY';
-  } else if (statusUpper.includes('OFFLINE') || statusUpper.includes('OUT_OF_ORDER')) {
-    return 'OFFLINE';
-  } else {
-    return 'UNKNOWN';
   }
 }
 

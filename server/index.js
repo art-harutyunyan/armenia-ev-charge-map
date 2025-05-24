@@ -1,3 +1,4 @@
+
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
@@ -25,10 +26,22 @@ app.get("/api/data", (req, res) => {
       "../public/data/evanCharge.json"
     );
 
+    console.log("Checking for data files...");
+    console.log("Team Energy path:", teamEnergyPath);
+    console.log("Evan Charge path:", evanChargePath);
+
     // Check if both files exist
-    if (fs.existsSync(teamEnergyPath) && fs.existsSync(evanChargePath)) {
+    if (fs.existsSync(teamEnergyPath)) {
+      console.log("Reading Team Energy data...");
       const teamEnergy = JSON.parse(fs.readFileSync(teamEnergyPath, "utf8"));
-      const evanCharge = JSON.parse(fs.readFileSync(evanChargePath, "utf8"));
+      console.log(`Loaded ${teamEnergy.length || 0} Team Energy stations`);
+      
+      let evanCharge = [];
+      if (fs.existsSync(evanChargePath)) {
+        console.log("Reading Evan Charge data...");
+        evanCharge = JSON.parse(fs.readFileSync(evanChargePath, "utf8"));
+        console.log(`Loaded ${evanCharge.length || 0} Evan Charge stations`);
+      }
 
       return res.json({
         teamEnergy,
@@ -36,6 +49,7 @@ app.get("/api/data", (req, res) => {
         lastUpdated: new Date().toISOString(),
       });
     } else {
+      console.log("Data files don't exist, attempting to refresh...");
       // If files don't exist, attempt to refresh the data first
       return refreshData(req, res);
     }
@@ -57,6 +71,7 @@ async function refreshData(req, res) {
     // Create the data directory if it doesn't exist
     const dataDir = path.join(__dirname, "../public/data");
     if (!fs.existsSync(dataDir)) {
+      console.log("Creating data directory...");
       fs.mkdirSync(dataDir, { recursive: true });
     }
 
@@ -64,45 +79,27 @@ async function refreshData(req, res) {
     console.log("Fetching Team Energy data...");
     const teamEnergyData = await fetchTeamEnergyData();
 
-    console.log("Fetching Evan Charge data...");
-    // const evanChargeData = await fetchEvanChargeData();
-    const evanChargeData = { success: true, data: [] };
-
-    if (!teamEnergyData.success || !evanChargeData.success) {
-      const errors = [];
-      if (!teamEnergyData.success)
-        errors.push("Team Energy: " + teamEnergyData.error);
-      if (!evanChargeData.success)
-        errors.push("Evan Charge: " + evanChargeData.error);
-
-      console.error("API fetch errors:", errors);
+    if (!teamEnergyData.success) {
+      console.error("Team Energy fetch failed:", teamEnergyData.error);
       return res.status(500).json({
         success: false,
-        error: "Failed to fetch data from APIs",
-        details: errors,
+        error: "Failed to fetch Team Energy data",
+        details: teamEnergyData.error,
       });
     }
 
-    // Save data to JSON files
+    // Save TeamEnergy data to JSON file
     const teamEnergyPath = path.join(
       __dirname,
       "../public/data/teamEnergy.json"
     );
-    const evanChargePath = path.join(
-      __dirname,
-      "../public/data/evanCharge.json"
-    );
 
     console.log("Saving Team Energy data...");
+    console.log("Data to save:", JSON.stringify(teamEnergyData.data, null, 2));
+    
     fs.writeFileSync(
       teamEnergyPath,
       JSON.stringify(teamEnergyData.data, null, 2)
-    );
-
-    console.log("Saving Evan Charge data...");
-    fs.writeFileSync(
-      evanChargePath,
-      JSON.stringify(evanChargeData.data, null, 2)
     );
 
     console.log("Data refresh complete!");
@@ -111,8 +108,7 @@ async function refreshData(req, res) {
       message: "Data successfully refreshed",
       timestamp: new Date().toISOString(),
       stats: {
-        teamEnergy: { stations: teamEnergyData.data.chargers?.length || 0 },
-        evanCharge: { stations: evanChargeData.data.data?.length || 0 },
+        teamEnergy: { stations: teamEnergyData.data?.length || 0 },
       },
     });
   } catch (error) {
