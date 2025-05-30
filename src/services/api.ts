@@ -1,15 +1,10 @@
+
 import { ChargingStation } from '@/types/chargers';
 import { TeamEnergyStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
 
 // API base URL - change this to your production URL when deploying
 const API_BASE_URL = 'http://localhost:3001';
-
-// Helper function to map TeamEnergy connector types to display format
-function mapTeamEnergyPortType(connectorType: string): string {
-  // Return the original connector type for display instead of converting to standard format
-  return connectorType;
-}
 
 // Helper function to map TeamEnergy status to standard format
 function mapTeamEnergyStatus(status: string): 'AVAILABLE' | 'BUSY' | 'UNKNOWN' | 'OFFLINE' {
@@ -41,8 +36,16 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     const data = await response.json();
     console.log('Backend data response:', data);
     
-    // Check if teamEnergy data exists and has the chargers array
-    const teamEnergyData = data.teamEnergy?.chargers || data.teamEnergy || [];
+    // Parse the teamEnergy data correctly - it's nested under teamEnergy.chargers
+    let teamEnergyData = [];
+    if (data.teamEnergy) {
+      if (Array.isArray(data.teamEnergy)) {
+        teamEnergyData = data.teamEnergy;
+      } else if (data.teamEnergy.chargers && Array.isArray(data.teamEnergy.chargers)) {
+        teamEnergyData = data.teamEnergy.chargers;
+      }
+    }
+    
     console.log(`Retrieved ${teamEnergyData.length || 0} Team Energy chargers from backend`);
     console.log('Sample TeamEnergy data:', teamEnergyData[0]);
     
@@ -50,15 +53,16 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     const teamEnergyChargers: ChargingStation[] = teamEnergyData.map((station: TeamEnergyStation) => {
       console.log('Processing station:', station.name);
       
-      // Collect all connectors from all charge point infos
+      // Collect all connectors from all charge point infos, including chargePointId
       const allPorts = station.chargePointInfos.flatMap(info => 
         info.connectors.map(connector => ({
           id: connector.connectorId,
-          type: mapTeamEnergyPortType(connector.connectorType), // Keep original type
+          type: connector.connectorType, // Keep original connector type
           power: connector.power,
           status: mapTeamEnergyStatus(connector.status),
-          statusDescription: connector.statusDescription, // Add status description
-          price: connector.price // Add price
+          statusDescription: connector.statusDescription, // Use original status description
+          price: connector.price,
+          chargePointId: info.chargePointId // Add chargePointId for grouping
         }))
       );
 

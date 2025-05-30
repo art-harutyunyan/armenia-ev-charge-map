@@ -18,6 +18,7 @@ export interface ChargingPort {
   status: ChargingStatus;
   statusDescription?: string; // Add optional status description
   price?: number; // Add optional price
+  chargePointId?: string; // Add chargePointId for grouping
 }
 
 export interface ChargingStation {
