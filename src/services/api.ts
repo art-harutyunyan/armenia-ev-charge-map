@@ -1,4 +1,3 @@
-
 import { ChargingStation } from '@/types/chargers';
 import { TeamEnergyStation } from '@/types/chargers';
 import { mockChargers } from './apis/mockData';
@@ -6,23 +5,10 @@ import { mockChargers } from './apis/mockData';
 // API base URL - change this to your production URL when deploying
 const API_BASE_URL = 'http://localhost:3001';
 
-// Helper function to map TeamEnergy connector types to standard format
-function mapTeamEnergyPortType(connectorType: string): 'TYPE_1' | 'TYPE_2' | 'CCS' | 'CHADEMO' | 'OTHER' {
-  const type = String(connectorType).toUpperCase();
-  
-  if (type.includes('TYPE1') || type.includes('TYPE 1')) {
-    return 'TYPE_1';
-  } else if (type.includes('TYPE2') || type.includes('TYPE 2')) {
-    return 'TYPE_2';
-  } else if (type.includes('CCS') || type.includes('TESLA')) {
-    return 'CCS';
-  } else if (type.includes('CHADEMO')) {
-    return 'CHADEMO';
-  } else if (type.includes('GB/T')) {
-    return 'CCS'; // Map GB/T to CCS for now
-  } else {
-    return 'OTHER';
-  }
+// Helper function to map TeamEnergy connector types to display format
+function mapTeamEnergyPortType(connectorType: string): string {
+  // Return the original connector type for display instead of converting to standard format
+  return connectorType;
 }
 
 // Helper function to map TeamEnergy status to standard format
@@ -68,9 +54,11 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
       const allPorts = station.chargePointInfos.flatMap(info => 
         info.connectors.map(connector => ({
           id: connector.connectorId,
-          type: mapTeamEnergyPortType(connector.connectorType),
+          type: mapTeamEnergyPortType(connector.connectorType), // Keep original type
           power: connector.power,
-          status: mapTeamEnergyStatus(connector.status)
+          status: mapTeamEnergyStatus(connector.status),
+          statusDescription: connector.statusDescription, // Add status description
+          price: connector.price // Add price
         }))
       );
 

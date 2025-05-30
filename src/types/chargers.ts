@@ -1,4 +1,3 @@
-
 export type PortType = 
   | 'TYPE_1'
   | 'TYPE_2'
@@ -14,9 +13,11 @@ export type ChargingStatus =
 
 export interface ChargingPort {
   id: string;
-  type: PortType;
+  type: PortType | string; // Allow string for TeamEnergy original types
   power: number; // kW
   status: ChargingStatus;
+  statusDescription?: string; // Add optional status description
+  price?: number; // Add optional price
 }
 
 export interface ChargingStation {

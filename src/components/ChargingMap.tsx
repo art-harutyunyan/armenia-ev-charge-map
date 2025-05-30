@@ -22,8 +22,20 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
   const filteredStations = stations.filter(station => {
     // Check if any port matches the filter criteria
     return station.ports.some(port => {
-      // Filter by port type
-      const typeMatch = filters.portTypes.length === 0 || filters.portTypes.includes(port.type);
+      // Filter by port type - for TeamEnergy, we need to handle original types
+      const typeMatch = filters.portTypes.length === 0 || 
+        filters.portTypes.some(filterType => {
+          if (typeof port.type === 'string') {
+            // Handle TeamEnergy original types
+            const portTypeUpper = port.type.toUpperCase();
+            if (filterType === 'TYPE_1' && portTypeUpper.includes('TYPE 1')) return true;
+            if (filterType === 'TYPE_2' && portTypeUpper.includes('TYPE 2')) return true;
+            if (filterType === 'CCS' && (portTypeUpper.includes('CCS') || portTypeUpper.includes('TESLA'))) return true;
+            if (filterType === 'CHADEMO' && portTypeUpper.includes('CHADEMO')) return true;
+            return filterType === 'OTHER';
+          }
+          return port.type === filterType;
+        });
       
       // Filter by power range
       const powerMatch = port.power >= filters.minPower && 
@@ -155,7 +167,7 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         `;
       }
 
-      // Create enhanced popup content
+      // Create enhanced popup content with correct data
       const popupContent = `
         <div class="p-4 max-w-sm">
           <h3 class="font-bold text-lg mb-2 text-blue-800">${station.name}</h3>
@@ -170,14 +182,20 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
                     <div class="flex justify-between items-center mb-2">
                       <span class="font-medium text-gray-800">${port.type}</span>
                       <span class="${getStatusColor(port.status)} font-bold">
-                        ${getStatusIcon(port.status)} ${port.status}
+                        ${getStatusIcon(port.status)} ${port.statusDescription || port.status}
                       </span>
                     </div>
                     <div class="text-sm text-gray-600">
-                      <div class="flex justify-between">
+                      <div class="flex justify-between mb-1">
                         <span>Power:</span>
                         <span class="font-medium">${port.power} kW</span>
                       </div>
+                      ${port.price ? `
+                        <div class="flex justify-between">
+                          <span>Price:</span>
+                          <span class="font-medium">${port.price} AMD/kWh</span>
+                        </div>
+                      ` : ''}
                     </div>
                   </div>
                 `)
