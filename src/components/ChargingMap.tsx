@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -15,6 +14,8 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<{ [key: string]: mapboxgl.Marker }>({});
+  const popupsRef = useRef<{ [key: string]: mapboxgl.Popup }>({});
+  const [activeMarkerId, setActiveMarkerId] = useState<string | null>(null);
   const { toast } = useToast();
   const [mapInitialized, setMapInitialized] = useState<boolean>(false);
 
@@ -122,6 +123,42 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
     }
   };
 
+  // Function to close all popups
+  const closeAllPopups = () => {
+    Object.values(popupsRef.current).forEach(popup => popup.remove());
+    popupsRef.current = {};
+    setActiveMarkerId(null);
+  };
+
+  // Function to create marker element
+  const createMarkerElement = (station: ChargingStation, isActive: boolean = false) => {
+    const markerElement = document.createElement('div');
+    markerElement.className = 'custom-marker';
+    
+    // Style based on brand and active state
+    if (station.brand === 'TEAM_ENERGY') {
+      markerElement.className += ' team-energy-marker';
+      const borderColor = isActive ? 'border-orange-500' : 'border-blue-500';
+      const bgColor = isActive ? 'bg-orange-600' : 'bg-blue-600';
+      markerElement.innerHTML = `
+        <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 ${borderColor} transition-all duration-200">
+          <div class="w-10 h-10 rounded-full ${bgColor} flex items-center justify-center text-white font-bold text-sm">TE</div>
+        </div>
+      `;
+    } else {
+      markerElement.className += ' evan-charge-marker';
+      const borderColor = isActive ? 'border-orange-500' : 'border-green-500';
+      const bgColor = isActive ? 'bg-orange-600' : 'bg-green-600';
+      markerElement.innerHTML = `
+        <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 ${borderColor} transition-all duration-200">
+          <div class="w-10 h-10 rounded-full ${bgColor} flex items-center justify-center text-white font-bold text-sm">EC</div>
+        </div>
+      `;
+    }
+
+    return markerElement;
+  };
+
   // Add markers for stations when map is initialized and stations are loaded
   useEffect(() => {
     if (!map.current || !mapInitialized) {
@@ -131,8 +168,9 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
     
     console.log(`Adding markers for ${filteredStations.length} filtered stations`);
 
-    // Remove any existing markers
+    // Remove any existing markers and popups
     Object.values(markersRef.current).forEach(marker => marker.remove());
+    closeAllPopups();
     markersRef.current = {};
 
     // Add markers for filtered stations
@@ -147,25 +185,7 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
       }
       
       // Create custom marker element
-      const markerElement = document.createElement('div');
-      markerElement.className = 'custom-marker';
-      
-      // Style based on brand
-      if (station.brand === 'TEAM_ENERGY') {
-        markerElement.className += ' team-energy-marker';
-        markerElement.innerHTML = `
-          <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 border-blue-500">
-            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">TE</div>
-          </div>
-        `;
-      } else {
-        markerElement.className += ' evan-charge-marker';
-        markerElement.innerHTML = `
-          <div class="w-12 h-12 rounded-full bg-white p-1 shadow-lg flex items-center justify-center border-2 border-green-500">
-            <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold text-sm">EC</div>
-          </div>
-        `;
-      }
+      const markerElement = createMarkerElement(station, false);
 
       // Group ports by chargePointId for Team Energy stations
       const portGroups: { [key: string]: any[] } = {};
@@ -195,7 +215,7 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         if (station.brand === 'TEAM_ENERGY' && groupKeys.length > 1) {
           connectorsHtml += `
             <div class="font-medium text-sm text-blue-700 mb-2 mt-3">
-              Charge Point: ${groupId}
+              Charge Point ${groupIndex + 1}
             </div>
           `;
         }
@@ -241,7 +261,7 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
             <p class="text-sm text-gray-600 mb-3">${station.address}</p>
           </div>
           
-          <div class="max-h-80 overflow-y-auto px-4">
+          <div class="max-h-64 overflow-y-auto px-4 custom-scrollbar">
             <div class="mb-3">
               <h4 class="font-semibold mb-2 text-gray-800">Available Connectors:</h4>
               <div class="space-y-2">
@@ -257,21 +277,43 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         </div>
       `;
 
-      // Create marker and popup with improved positioning
+      // Create marker with click handler
       const marker = new mapboxgl.Marker(markerElement)
         .setLngLat([station.longitude, station.latitude])
-        .setPopup(
-          new mapboxgl.Popup({ 
-            offset: 25,
-            maxWidth: '400px',
-            className: 'custom-popup',
-            closeButton: true,
-            closeOnClick: false,
-            anchor: 'bottom' // Ensure popup appears above marker
-          })
-            .setHTML(popupContent)
-        )
         .addTo(map.current!);
+
+      // Add click handler to marker
+      markerElement.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
+        // Close all existing popups
+        closeAllPopups();
+        
+        // Update marker appearance
+        setActiveMarkerId(station.id);
+        
+        // Create and show popup
+        const popup = new mapboxgl.Popup({ 
+          offset: [0, -40],
+          maxWidth: '400px',
+          className: 'custom-popup',
+          closeButton: true,
+          closeOnClick: false,
+          anchor: 'bottom'
+        })
+          .setLngLat([station.longitude, station.latitude])
+          .setHTML(popupContent)
+          .addTo(map.current!);
+
+        // Store popup reference
+        popupsRef.current[station.id] = popup;
+
+        // Add close handler
+        popup.on('close', () => {
+          delete popupsRef.current[station.id];
+          setActiveMarkerId(null);
+        });
+      });
 
       markersRef.current[station.id] = marker;
       console.log('Marker added successfully for:', station.name);
@@ -296,6 +338,136 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
       }
     }
   }, [filteredStations, mapInitialized]);
+
+  // Update marker appearances when active marker changes
+  useEffect(() => {
+    Object.entries(markersRef.current).forEach(([stationId, marker]) => {
+      const station = filteredStations.find(s => s.id === stationId);
+      if (station) {
+        const isActive = activeMarkerId === stationId;
+        const newElement = createMarkerElement(station, isActive);
+        
+        // Add click handler to new element
+        newElement.addEventListener('click', (e) => {
+          e.stopPropagation();
+          
+          // Close all existing popups
+          closeAllPopups();
+          
+          // Update marker appearance
+          setActiveMarkerId(stationId);
+          
+          // Create popup content (reuse logic from above)
+          const portGroups: { [key: string]: any[] } = {};
+          
+          if (station.brand === 'TEAM_ENERGY') {
+            station.ports.forEach(port => {
+              const groupId = port.chargePointId || 'default';
+              if (!portGroups[groupId]) {
+                portGroups[groupId] = [];
+              }
+              portGroups[groupId].push(port);
+            });
+          } else {
+            portGroups['default'] = station.ports;
+          }
+
+          let connectorsHtml = '';
+          const groupKeys = Object.keys(portGroups);
+          
+          groupKeys.forEach((groupId, groupIndex) => {
+            const ports = portGroups[groupId];
+            
+            if (station.brand === 'TEAM_ENERGY' && groupKeys.length > 1) {
+              connectorsHtml += `
+                <div class="font-medium text-sm text-blue-700 mb-2 mt-3">
+                  Charge Point ${groupIndex + 1}
+                </div>
+              `;
+            }
+            
+            ports.forEach(port => {
+              connectorsHtml += `
+                <div class="border rounded-lg p-3 bg-gray-50 mb-2">
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="font-medium text-gray-800">${port.type}</span>
+                    <span class="${getStatusColor(port.status)} font-bold">
+                      ${getStatusIcon(port.status)} ${port.statusDescription || port.status}
+                    </span>
+                  </div>
+                  <div class="text-sm text-gray-600">
+                    <div class="flex justify-between mb-1">
+                      <span>Power:</span>
+                      <span class="font-medium">${port.power} kW</span>
+                    </div>
+                    ${port.price ? `
+                      <div class="flex justify-between">
+                        <span>Price:</span>
+                        <span class="font-medium">${port.price} AMD/kWh</span>
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+              `;
+            });
+            
+            if (groupIndex < groupKeys.length - 1) {
+              connectorsHtml += `
+                <div class="border-t border-gray-300 my-3"></div>
+              `;
+            }
+          });
+
+          const popupContent = `
+            <div class="max-w-sm">
+              <div class="p-4 pb-2">
+                <h3 class="font-bold text-lg mb-2 text-blue-800">${station.name}</h3>
+                <p class="text-sm text-gray-600 mb-3">${station.address}</p>
+              </div>
+              
+              <div class="max-h-64 overflow-y-auto px-4 custom-scrollbar">
+                <div class="mb-3">
+                  <h4 class="font-semibold mb-2 text-gray-800">Available Connectors:</h4>
+                  <div class="space-y-2">
+                    ${connectorsHtml}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="text-xs text-gray-500 mt-3 pt-2 border-t px-4 pb-4">
+                <div>Brand: ${station.brand === 'TEAM_ENERGY' ? 'Team Energy' : 'Evan Charge'}</div>
+                <div>Station ID: ${station.id}</div>
+              </div>
+            </div>
+          `;
+          
+          // Create and show popup
+          const popup = new mapboxgl.Popup({ 
+            offset: [0, -40],
+            maxWidth: '400px',
+            className: 'custom-popup',
+            closeButton: true,
+            closeOnClick: false,
+            anchor: 'bottom'
+          })
+            .setLngLat([station.longitude, station.latitude])
+            .setHTML(popupContent)
+            .addTo(map.current!);
+
+          // Store popup reference
+          popupsRef.current[stationId] = popup;
+
+          // Add close handler
+          popup.on('close', () => {
+            delete popupsRef.current[stationId];
+            setActiveMarkerId(null);
+          });
+        });
+        
+        marker.setElement(newElement);
+      }
+    });
+  }, [activeMarkerId, filteredStations]);
 
   return (
     <div className="h-[70vh] md:h-[80vh] w-full rounded-lg overflow-hidden">
