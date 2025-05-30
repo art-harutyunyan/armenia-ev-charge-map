@@ -36,6 +36,10 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
     });
   });
 
+  console.log('ChargingMap received stations:', stations.length);
+  console.log('Filtered stations:', filteredStations.length);
+  console.log('Sample station:', stations[0]);
+
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
     
@@ -108,7 +112,11 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
 
   // Add markers for stations when map is initialized and stations are loaded
   useEffect(() => {
-    if (!map.current || !mapInitialized) return;
+    if (!map.current || !mapInitialized) {
+      console.log('Map not ready yet:', { mapExists: !!map.current, mapInitialized });
+      return;
+    }
+    
     console.log(`Adding markers for ${filteredStations.length} filtered stations`);
 
     // Remove any existing markers
@@ -117,7 +125,14 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
 
     // Add markers for filtered stations
     filteredStations.forEach(station => {
-      console.log('Adding marker for station:', station.name, 'at', station.latitude, station.longitude);
+      console.log('Adding marker for station:', station.name, 'at coords:', station.latitude, station.longitude);
+      
+      // Validate coordinates
+      if (!station.latitude || !station.longitude || 
+          isNaN(station.latitude) || isNaN(station.longitude)) {
+        console.error('Invalid coordinates for station:', station.name, station.latitude, station.longitude);
+        return;
+      }
       
       // Create custom marker element
       const markerElement = document.createElement('div');
@@ -192,6 +207,7 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
         .addTo(map.current!);
 
       markersRef.current[station.id] = marker;
+      console.log('Marker added successfully for:', station.name);
     });
 
     // Adjust map bounds to fit all markers if there are any
@@ -199,13 +215,18 @@ const ChargingMap: React.FC<ChargingMapProps> = ({ stations, filters }) => {
       const bounds = new mapboxgl.LngLatBounds();
       
       filteredStations.forEach(station => {
-        bounds.extend([station.longitude, station.latitude]);
+        if (station.latitude && station.longitude && 
+            !isNaN(station.latitude) && !isNaN(station.longitude)) {
+          bounds.extend([station.longitude, station.latitude]);
+        }
       });
       
-      map.current.fitBounds(bounds, {
-        padding: 50,
-        maxZoom: 15
-      });
+      if (!bounds.isEmpty()) {
+        map.current.fitBounds(bounds, {
+          padding: 50,
+          maxZoom: 15
+        });
+      }
     }
   }, [filteredStations, mapInitialized]);
 

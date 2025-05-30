@@ -55,8 +55,10 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     const data = await response.json();
     console.log('Backend data response:', data);
     
-    const teamEnergyData = data.teamEnergy;
+    // Check if teamEnergy data exists and has the chargers array
+    const teamEnergyData = data.teamEnergy?.chargers || data.teamEnergy || [];
     console.log(`Retrieved ${teamEnergyData.length || 0} Team Energy chargers from backend`);
+    console.log('Sample TeamEnergy data:', teamEnergyData[0]);
     
     // Convert TeamEnergy stations to standard format
     const teamEnergyChargers: ChargingStation[] = teamEnergyData.map((station: TeamEnergyStation) => {
@@ -84,6 +86,7 @@ export async function fetchAllChargers(): Promise<ChargingStation[]> {
     });
     
     console.log(`Converted ${teamEnergyChargers.length} Team Energy stations`);
+    console.log('Sample converted station:', teamEnergyChargers[0]);
     
     // For now, skip EvanCharge data processing since we're focusing on TeamEnergy
     const evanChargeChargers: ChargingStation[] = [];
