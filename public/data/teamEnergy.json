@@ -1,12 +1,2139 @@
-
 {
   "chargers": [
     {
-      "chargePointId": "te001",
-      "name": "Team Energy - Yerevan Center",
-      "latitude": 40.1792,
-      "longitude": 44.5126,
-      "address": "10 Amiryan St, Yerevan, Armenia",
+      "chargePointId": "03ad9d1e-7ebf-4392-9aff-b4a39c3e0f18",
+      "name": "«Աստղիկ» ԲԿ",
+      "latitude": 40.173223,
+      "longitude": 44.465854,
+      "address": "Հայաստան, 0032, Երևան Դանիել Վարուժանի փող., 28 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0090",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ecd32151-0a90-475d-8251-2cea4dd22003",
+              "key": "MT009001",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ecd32151-0a90-475d-8251-2cea4dd22004",
+              "key": "MT009002",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0091",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ecd32151-0a90-475d-8251-2cea4dd22012",
+              "key": "MT009101",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ecd32151-0a90-475d-8251-2cea4dd22014",
+              "key": "MT009102",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450071",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ecd32151-0a90-475d-8251-2cea4dd22015",
+              "key": "965345007101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "04d094d4-c324-4ad1-bd7d-32b120ca7538",
+      "name": "Երևան Սիթի,Կոմիտաս",
+      "latitude": 40.205031,
+      "longitude": 44.520775,
+      "address": "Հայաստան, 0014, Երևան Կոմիտասի պող., 60/2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0109",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "18a02de6-6afa-47ac-8e29-59809192ad00",
+              "key": "MT01091",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 85
+            },
+            {
+              "connectorId": "532b6e70-edab-43b8-88ff-67bfd37d65a7",
+              "key": "MT01092",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 87
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0110",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "8ca6884d-6488-4933-9684-e252293928ce",
+              "key": "MT01101",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 85
+            },
+            {
+              "connectorId": "ad9269f6-d714-4e91-a9e8-a32d09738fad",
+              "key": "MT01102",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 27
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450129",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "b103395a-3e8c-4872-b865-1acc32fbe1aa",
+              "key": "965345012901",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "077de826-65ca-4988-a0cd-f8ce12127c65",
+      "name": "«Փուռ» ռեստորան",
+      "latitude": 40.532587,
+      "longitude": 44.720614,
+      "address": "Հայաստան, Կոտայքի մարզ, Ծաղկաձոր\nՕրբելի եղբայրների փող., 18 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450018",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "33b99e87-5ddf-44e2-9fc8-2db99e3fd09c",
+              "key": "965345001801",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450052",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "bf4aff1e-17fb-46df-8b16-b823757eed6c",
+              "key": "965345005201",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "08046e50-c1f3-499a-8e99-86189380b029",
+      "name": "Դրիմ Պարկ",
+      "latitude": 40.938222,
+      "longitude": 44.478417,
+      "address": "Հայաստան, Լոռու մարզ, Գյուլագարակ գյուղ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450118",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ab8189e7-d1a0-4536-a8fb-ab90b3a1bec9",
+              "key": "965345011801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "0b14162c-96fa-4232-84f9-e028bee166c5",
+      "name": "Սիոն Ռեզորթ",
+      "latitude": 40.530833,
+      "longitude": 44.728472,
+      "address": "Հայաստան, 2310, Կոտայքի մարզ, Ծաղկաձոր\nԱվետիք Իսահակյան փող., 5/3",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450088",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ebdc2825-b564-4c9a-87ff-24f346e7af3c",
+              "key": "965345008801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "0c077d80-ebff-45c3-99c0-9d398fdb1c66",
+      "name": "Հայաստանի ազգային պոլիտեխնիկական համալսարան",
+      "latitude": 40.191674,
+      "longitude": 44.521665,
+      "address": "Հայաստան, 0009, Երևան Տերյան փող., 105 շենք, 5-րդ մասնաշենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0088",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "19db7e96-9c80-472f-92ea-bf423de010f6",
+              "key": "MT008801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "94cae807-72aa-4be0-bf8a-6b3718344867",
+              "key": "MT008802",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0089",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "9ef3ba61-8a4f-4444-b0c8-8057e38df863",
+              "key": "MT008901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 82
+            },
+            {
+              "connectorId": "e93b3229-8811-40f1-ab61-552972a0f456",
+              "key": "MT008902",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 81
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0121",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a5375c4c-fdc8-4086-8b4c-4e1e43d476fe",
+              "key": "MT01211",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "acc8c380-f9a5-4a73-aa49-60e6a32548f5",
+              "key": "MT01212",
+              "connectorType": "NACS (Tesla)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "0df1b345-fa47-473c-9cc5-5dd4c41f7d5e",
+      "name": "Լա Դեֆանս հյուրանոց",
+      "latitude": 40.19206,
+      "longitude": 44.431741,
+      "address": "Հայաստան, Երևան, Տիչինայի փող., 300/9 շ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450075",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "7409b5b5-1526-43cd-8644-81a4090685a6",
+              "key": "965345007501",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "0ee74ad2-f414-4267-95cc-febce39061a3",
+      "name": "Վայք Ֆուդ Կորտ",
+      "latitude": 39.689359,
+      "longitude": 45.473226,
+      "address": "Հայաստան, 3801, Վայոց ձորի մարզ, Վայք Ջերմուկի խճուղի, 6",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0135",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "864319a6-ac9a-4b18-a970-e8dd891898b6",
+              "key": "MT01351",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "2888dd45-92d9-4b25-9ffb-cfc0a9c7c02e",
+              "key": "MT01352",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0136",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "bce3fa35-d00e-471b-a578-2026bbfa80dd",
+              "key": "MT01361",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "7bc9d3c4-3b56-4c79-9a9c-f46c2bebfc7c",
+              "key": "MT01362",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450140",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "2ae07a8e-81b2-4e9b-a28a-e2b31c0b06e3",
+              "key": "965345014001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "10976e52-a2b8-48b6-8093-b0231d60abf2",
+      "name": "Վինյարդ ռեստորան",
+      "latitude": 40.289723,
+      "longitude": 44.340806,
+      "address": "Հայաստան, Մեսրոպ Մաշտոցի 148, Աշտարակ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450120",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "86330e3b-d397-4435-987f-a4329e1652f7",
+              "key": "965345012001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "129da0be-6762-496f-b870-edda837bae2b",
+      "name": "Արզնի Ձոր ռեստորանային համալիր",
+      "latitude": 40.309149,
+      "longitude": 44.588602,
+      "address": "Հայաստան, 2410, Կոտայքի մարզ, Նոր Գեղի գյուղ\nԱռողջարանային փող. 4-րդ փակուղի, 11/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450099",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206845",
+              "key": "965345009901",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450090",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ea91845d-6e32-4842-8b2d-b65fc4593336",
+              "key": "965345009001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450098",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ec8262e0-78d6-4e12-9fbb-936af57de4e0",
+              "key": "965345009801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "1304ffe3-af36-4558-bfd6-35935c38d910",
+      "name": "«Ծովագյուղ» ֆուդ-կորտ",
+      "latitude": 40.619171,
+      "longitude": 44.951778,
+      "address": "«Ծովագյուղ» ֆուդ-կորտի հարևանությամբ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0062",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206835",
+              "key": "MT006201",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206837",
+              "key": "MT006202",
+              "connectorType": "CCS1",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0064",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206836",
+              "key": "MT006401",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206838",
+              "key": "MT006402",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450046",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206839",
+              "key": "965345004601",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450058",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206840",
+              "key": "965345005801",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "19342510-be75-40d6-afe8-35e0cc611bb7",
+      "name": "Ադանա ռեստորան",
+      "latitude": 40.00775,
+      "longitude": 44.474944,
+      "address": "Հայաստան, Արարատի մարզ, Մխչյան գյուղ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450067",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "93b0a6c2-655f-47ac-9a1e-065c5120a2f4",
+              "key": "965345006701",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "1b765371-defe-4012-baf1-c448dcb9d1cc",
+      "name": "Պալեռմո հյուրանոց",
+      "latitude": 40.822611,
+      "longitude": 44.45925,
+      "address": "Հայաստան, Վանաձոր Կարեն Դեմիրճյան փող., 1/35 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450117",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ea9938d2-a730-4e40-8e9f-8018539e5720",
+              "key": "965345011701",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "1cd3ab2c-8953-4256-bd10-932416c83746",
+      "name": "Արցախ Հյուրանոց 2",
+      "latitude": 40.151886,
+      "longitude": 44.503182,
+      "address": "Հայաստան, 0026, Երևան Սևանի փող., 116 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450095",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "59d1fe21-d5ad-4999-be15-a70626e6cdab",
+              "key": "965345009501",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "1cfa4e80-57fd-4a96-bcbb-1f52ad3770f9",
+      "name": "«Վայք» հյուրանոց",
+      "latitude": 39.689691,
+      "longitude": 45.471856,
+      "address": "ՀՀ, Վայոց Ձորի  մարզ, ք․ Վայք, Ջերմուկի խճուղի 10/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450057",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206771",
+              "key": "965345005701",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450061",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206772",
+              "key": "965345006101",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "216a5084-d18e-4b38-9861-678f2fdb652a",
+      "name": "Udrive Սեբաստիա 1",
+      "latitude": 40.162536,
+      "longitude": 44.466228,
+      "address": "ք․ Երևան, Սեբաստիա 170/2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450091",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "5350f7a9-017d-426d-8e59-aa6cd83b3009",
+              "key": "965345009101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "22c21e06-aa04-4a1f-948a-f66c4ecdba0c",
+      "name": "Թուֆենկյան Ավան Մարակ Ծափաթաղ հյուրանոց",
+      "latitude": 40.411559,
+      "longitude": 45.471135,
+      "address": "ՀՀ, Գեղարքունիքի մարզ, Ծափաթաղ 1611",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450035",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206789",
+              "key": "965345003501",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450043",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206790",
+              "key": "965345004301",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "24c75bf8-6030-4369-b2cf-7b94d978706a",
+      "name": "Զվարթնոց օդանավակայան",
+      "latitude": 40.152819,
+      "longitude": 44.400528,
+      "address": "Հայաստան, 0042, Երևան Զվարթնոց օդանավակայան",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0105",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "2f4dde4a-b882-4c74-a3db-d0ba8196adf7",
+              "key": "MT010501",
+              "connectorType": "CCS1",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 100
+            },
+            {
+              "connectorId": "2f4dde4a-b882-4c74-a3db-d0ba8196adf5",
+              "key": "MT010502",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0106",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "2f4dde4a-b882-4c74-a3db-d0ba8196adf9",
+              "key": "MT010601",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "2f4dde4a-b882-4c74-a3db-d0ba8196adf8",
+              "key": "MT010602",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "2883df29-8cfa-4482-94f8-bc6618fda4ac",
+      "name": "Կապան",
+      "latitude": 39.204386,
+      "longitude": 46.444177,
+      "address": "ՀՀ, Սյունիքի մարզ, հ․ Կապան, ք․ Կապան,  Գործարանային փ․ 17/4",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0061",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206526",
+              "key": "MT00611",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206527",
+              "key": "MT00612",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "ST001",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206529",
+              "key": "ST00101",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206528",
+              "key": "ST00102",
+              "connectorType": "CHAdeMO",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206530",
+              "key": "ST00103",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450048",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206531",
+              "key": "965345004801",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450039",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206532",
+              "key": "965345003901",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "2fb04598-7622-46ec-8ef2-a62b679bbb80",
+      "name": "Բագրատաշեն \"Երակ\"",
+      "latitude": 41.231408,
+      "longitude": 44.838454,
+      "address": "Բագրատաշեն 19/65",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0103",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "dcf6fdc0-4728-4d0c-9ed6-786ce1b75912",
+              "key": "MT01031",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "dcf6fdc0-4728-4d0c-9ed6-786ce1b75913",
+              "key": "MT01032",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0104",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "dcf6fdc0-4728-4d0c-9ed6-786ce1b75914",
+              "key": "MT010401",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "dcf6fdc0-4728-4d0c-9ed6-786ce1b75915",
+              "key": "MT010402",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450109",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "dcf6fdc0-4728-4d0c-9ed6-786ce1b75923",
+              "key": "965345010901",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "3188ca47-7ab8-4f88-ad7a-bf01be6889e8",
+      "name": "Մոստ բիզնես կենտրոն",
+      "latitude": 40.203022,
+      "longitude": 44.556003,
+      "address": "Հայաստան, 0025, Երևան Մյասնիկյան պող., 38/5",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450089",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "9ae22e10-964f-4a21-a96f-76a014b7e816",
+              "key": "965345008901",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "318cf53d-de09-4779-a893-c598b41710c5",
+      "name": "Վ․Ա․ Ֆանարջյանի ՈՒԱԿ",
+      "latitude": 40.215346,
+      "longitude": 44.542931,
+      "address": "Հայաստան, 0052, Երևան Ֆանարջյան փող., 76 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0095",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "64d9fe33-2de3-4b17-8bf7-95bee37cb77e",
+              "key": "MT009501",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "c1c03231-2e0a-4036-96da-572938f939e8",
+              "key": "MT009502",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0096",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "c23f88b8-fb64-422d-b376-f63e9ef80857",
+              "key": "MT009601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "c23f88b8-fb64-422d-b376-f63e9ef80858",
+              "key": "MT009602",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 11
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450102",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "c23f88b8-fb64-422d-b376-f63e9ef80859",
+              "key": "965345010201",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "31e5d2d2-0bac-46b3-8316-6caa04173ffe",
+      "name": "Զուռնա ռեստորան",
+      "latitude": 40.736404,
+      "longitude": 43.79646,
+      "address": "ՀՀ, Շիրակի մարզ, Գյումրի-Արմավիր մայրուղի, 2 նրբ․, տ․1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450017",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206781",
+              "key": "965345001701",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450029",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206782",
+              "key": "965345002901",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "34037332-afd4-7fe4-4a10-65187de70316",
+      "name": "«Աշտարակի Ձոր» ",
+      "latitude": 40.30187,
+      "longitude": 44.378767,
+      "address": "ՀՀ, ք․ Աշտարակ, Արագածոտն, Քասախի կիրճ 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450012",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206742",
+              "key": "965345001201",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450027",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206751",
+              "key": "965345002701",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "3483e2a3-c61d-4b4f-b768-13b8eac400bc",
+      "name": "Տիտան Օիլ",
+      "latitude": 40.177306,
+      "longitude": 44.438344,
+      "address": "Հայաստան, Երևան, Մալաթիա-Սեբաստիա, Գ․ Շերամի փողոց, 108 ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0111",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "175f6269-97ca-45da-ae14-f07a71b843ab",
+              "key": "MT01111",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "76fa4a62-0ec0-4ec7-be18-d51f446d1724",
+              "key": "MT01112",
+              "connectorType": "CCS1 / TESLA",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0112",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "aa1af583-bd32-41fb-a2f2-4c9781dfe419",
+              "key": "MT011201",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "edbe0c67-7759-401f-8cd2-09b0a36a7958",
+              "key": "MT011202",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450132",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "ba07357a-811d-4f66-800b-201f9afc09e2",
+              "key": "965345013201",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "38585e10-6425-4d17-b8b7-5095fc0c987d",
+      "name": "Սոճուտ ռեզորթ Ստեփանավան",
+      "latitude": 40.938722,
+      "longitude": 44.478417,
+      "address": "Հայաստան, Լոռու մարզ, Գյուլագարակ գյուղ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450119",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a9b1bb47-1a7a-47ec-a6c2-4d6a3a3eeca3",
+              "key": "965345011901",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "40a8060e-5957-4008-b05c-2bcb8f25ff5a",
+      "name": "«Ալգա» ռեստորան",
+      "latitude": 40.186842,
+      "longitude": 44.603349,
+      "address": "ՀՀ, Կոտայքի մարզ, Ջրվեժ,  Քոչինյան փ․ 15/13",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450063",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206803",
+              "key": "965345006301",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450062",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206804",
+              "key": "965345006201",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "43af5614-a7e1-43cb-a4b4-a98cfd114261",
+      "name": "Լաթար ռեստորան",
+      "latitude": 40.216456,
+      "longitude": 44.439165,
+      "address": "Հայաստան, 0029, Երևան\nՍիլիկյան թաղամաս (3-րդ գյուղ), 5-րդ փ, 58 շ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450082",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "185432f2-2e63-475d-a475-802849b07745",
+              "key": "965345008201",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450081",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e035f21f-0abf-4267-a3ec-df46e0bd1bf2",
+              "key": "965345008101",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450074",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "fb4e324d-18e6-4ca1-9fbf-e581469bf700",
+              "key": "965345007401",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "48c00f7a-b470-477e-83b7-5baa255f85f2",
+      "name": "\"Պարկ Ռեզորթ\" Աղվերան",
+      "latitude": 40.489157,
+      "longitude": 44.600157,
+      "address": "Հայաստան, 2503, Կոտայքի մարզ, գյուղ Արզական, Անտառային փող., 1/4",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450072",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "33b897b2-bd81-4935-a2fd-0c936e779129",
+              "key": "965345007201",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "4c0d92ee-1f29-45a2-a52f-0881dd862212",
+      "name": "Շինուհայր",
+      "latitude": 39.48107,
+      "longitude": 46.27923,
+      "address": "ՀՀ, Սյունիքի մարզ, հ. Գորիս, Շինուհայրի խաչմերուկ ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0071",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206793",
+              "key": "MT007101",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 38
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206794",
+              "key": "MT007102",
+              "connectorType": "CCS1",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "ST004",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206797",
+              "key": "ST00401",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206795",
+              "key": "ST00402",
+              "connectorType": "CHAdeMO",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206831",
+              "key": "ST00403",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450015",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9216832",
+              "key": "965345001501",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450030",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9216847",
+              "key": "965345003001",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "55de6aea-9b76-9f61-2364-9a3a1699dbb4",
+      "name": "«Ակունքի Դրախտ» ռեստորանային համալիր",
+      "latitude": 40.262221,
+      "longitude": 44.679325,
+      "address": "ՀՀ, Կոտայքի մարզ, գ․ Ակունք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450010",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206740",
+              "key": "965345001001",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450025",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206750",
+              "key": "965345002501",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "578e7042-9900-44af-9291-7949fa1a93d3",
+      "name": "Ավալոն ռեստորան",
+      "latitude": 40.252861,
+      "longitude": 44.649777,
+      "address": "Հայաստան, 2211, Կոտայքի մարզ, Արամուս գյուղ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450121",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "23ea9bc5-ebbb-462b-961c-d4fcb8416958",
+              "key": "965345012101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450122",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e1d8832e-a0e3-446e-9ac8-3ab70eb62608",
+              "key": "965345012201",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "57a0dc81-dcb2-432f-8f01-b015c81692aa",
+      "name": "«Հին Ջրվեժ» ռեստորան",
+      "latitude": 40.191673,
+      "longitude": 44.58845,
+      "address": "ՀՀ, Կոտայքի մարզ, գ․ Ջրվեժ 17 փ․ 2/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450059",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206773",
+              "key": "965345005901",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450060",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206774",
+              "key": "965345006001",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "581e6cf4-f329-42f6-9f8b-a13b0fddecea",
+      "name": "Վալլեքս Գարդեն Հոթել Ալավերդի",
+      "latitude": 41.101342,
+      "longitude": 44.658169,
+      "address": "Հայաստան, Լոռու մարզ, ք. Ալավերդի, Սպանդարյան 2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0119",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "016fc1fd-e537-4a38-b5bd-f4aa5b8046d9",
+              "key": "MT011901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3cc12712-4ac8-4c44-a7c0-a8d0eef7fd25",
+              "key": "MT011902",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0120",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "0aa28829-43c7-4dd2-8abd-53e47087e2bc",
+              "key": "MT012001",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "73c605de-e7e6-40a3-9427-56d9d1df10c5",
+              "key": "MT012002",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450133",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "3641e3db-8a1d-44b8-a698-18f4785a581c",
+              "key": "965345013301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "5ad29a14-1a5f-4e77-80bc-e6d6224c60eb",
+      "name": "Լաթար Հյուրանոց ",
+      "latitude": 40.217754,
+      "longitude": 44.440766,
+      "address": "Հայաստան, 0029, Երևան Սիլիկյան թաղամաս (3-րդ գյուղ), 5-րդ փ, 58 շ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450073",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "40a7d94e-d290-4e58-b4ea-030e3df0a5c5",
+              "key": "965345007301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "5b1579d9-55d8-d3c5-d30a-59e706d1a877",
+      "name": "ԵՊՀ",
+      "latitude": 40.180965,
+      "longitude": 44.526494,
+      "address": "ՀՀ, ք. Երևան, Ալեք Մանուկյանի փ․ 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450004",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206734",
+              "key": "965345000401",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450019",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206754",
+              "key": "965345001901",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "5f823136-7eeb-43ff-ac84-fb9f020769eb",
+      "name": "Մեգա լիցքավորման կայան",
+      "latitude": 40.170411,
+      "longitude": 44.525255,
+      "address": "ՀՀ, Երևան, Չարենց փող, 76",
       "phone": "+37410300100",
       "chargePointInfos": [
         {
@@ -17,9 +2144,9 @@
             {
               "connectorId": "ff7d6ff8-c41c-4aef-8d33-014ce780a5ca",
               "key": "MT00651",
-              "connectorType": "TYPE2",
-              "connectorTypeGroup": "AC",
-              "power": 22,
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
               "statusDescription": "Հասանելի",
               "status": "1",
               "isPrepairing": false,
@@ -29,25 +2156,1898 @@
             {
               "connectorId": "c125c807-c6f7-48db-bb6c-fb4ca8621da1",
               "key": "MT00652",
-              "connectorType": "CCS1",
+              "connectorType": "CCS1 / Tesla(< 2022)",
               "connectorTypeGroup": "DC",
-              "power": 50,
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0070",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "2be23d38-79cc-4a26-a5d1-28a99fb67a50",
+              "key": "MT00701",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "d1ca84a0-4c2c-4c01-8982-8738e817fe1a",
+              "key": "MT00702",
+              "connectorType": "CCS1 / TESLA",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0122",
+          "isSeperated": false,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "27b709b0-aaa6-47ad-9699-84766ea766e4",
+              "key": "MT01221",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "28d3b7f3-59cb-4c1f-8807-50127d401510",
+              "key": "MT01222",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
               "statusDescription": "Լիցքավորվում է",
               "status": "6",
               "isPrepairing": false,
               "price": 120,
-              "stateOfBattery": 98
+              "stateOfBattery": 100
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0123",
+          "isSeperated": false,
+          "stationNumber": "4",
+          "connectors": [
+            {
+              "connectorId": "95bc8817-b0f0-4717-8a32-3f7448917cac",
+              "key": "MT01231",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "d0ec45cc-fb8b-4c46-ba36-ff6b20be8c48",
+              "key": "MT01232",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 96
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450040",
+          "isSeperated": true,
+          "stationNumber": "5",
+          "connectors": [
+            {
+              "connectorId": "b7bd7a61-2cc9-41b1-8ca3-9d27b3be872f",
+              "key": "965345004001",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450042",
+          "isSeperated": true,
+          "stationNumber": "6",
+          "connectors": [
+            {
+              "connectorId": "223c69dc-0bb2-4efe-8ceb-a03cb5d977a1",
+              "key": "965345004201",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
             }
           ]
         }
       ]
     },
     {
-      "chargePointId": "te002",
-      "name": "Team Energy - Gyumri",
-      "latitude": 40.7892,
-      "longitude": 43.8478,
-      "address": "15 Main St, Gyumri, Armenia",
+      "chargePointId": "6121af11-9578-4eeb-aa3b-23af2751a73c",
+      "name": "Դիլիջանի Տուն 2",
+      "latitude": 40.743133,
+      "longitude": 44.881986,
+      "address": "Հայաստան, Տավուշի մարզ, Դիլիջան Օրջոնիկիձեի փող., 36/5",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450106",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3b4c2ea7-8056-49c5-8aac-1377f4db80ed",
+              "key": "965345010601",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450105",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "709c2007-ff6b-4c52-89e9-fdcc81f25edb",
+              "key": "965345010501",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "6318359d-0883-4b70-8684-0f933801f1f8",
+      "name": "Կ. Դեմիրճյանի անվան մարզահամերգային համալիր",
+      "latitude": 40.187461,
+      "longitude": 44.484558,
+      "address": "Հայաստան, 0028, Երևան Ծիծեռնակաբերդի զբոսայգի, ավտոկայանատեղի",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0086",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "67c58aae-cd6e-43bf-8539-fc2d503d243e",
+              "key": "MT00861",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "a77c425a-0df1-4f58-bf7e-b1dfee287817",
+              "key": "MT00862",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0087",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a77c425a-0df1-4f58-bf7e-b1dfee287819",
+              "key": "MT00871",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "a77c425a-0df1-4f58-bf7e-b1dfee287820",
+              "key": "MT00872",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 240,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450066",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a77c425a-0df1-4f58-bf7e-b1dfee287823",
+              "key": "965345006601",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "632fac9d-330d-a32d-140c-897276e9a3e3",
+      "name": "«Բյուրակն» ռեստորան",
+      "latitude": 40.264036,
+      "longitude": 44.677647,
+      "address": "ՀՀ, Կոտայքի մարզ, հ․ Ակունք, Եկեղեցու փողոց 10",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450008",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206738",
+              "key": "965345000801",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450023",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206769",
+              "key": "965345002301",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "64c1aa39-8c1c-487d-9ea0-a2c4381df149",
+      "name": "«Թեղենիս» ծաղկաձորի հյուրանոց և հանգստյան տուն",
+      "latitude": 40.534042,
+      "longitude": 44.702921,
+      "address": "Հայաստան, 2310, Կոտայքի մարզ, Ծաղկաձոր Տանձաղբյուրի փող., 31 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450013",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206779",
+              "key": "965345001301",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450028",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206780",
+              "key": "965345002801",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "65a826ad-8a5f-4513-84c2-8cd22851d5ff",
+      "name": "Մերգելյանի անվան ԳՀԻ",
+      "latitude": 40.200169,
+      "longitude": 44.490603,
+      "address": "Հայաստան, 0033, Երևան Հակոբ Հակոբյան փող., 3 ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0115",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "27dbb819-efb7-44dc-a66c-b0a4c4af43fb",
+              "key": "MT01151",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ec1fe569-3f4c-4025-8d1a-91c927abb052",
+              "key": "MT011502",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0116",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "cd4ce442-f7c3-4acf-9959-4ab44c93c7cd",
+              "key": "MT011601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "e7d6dd2b-83a8-48e8-adfe-f883885767aa",
+              "key": "MT011602",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "6c638a70-7bfa-47ad-8192-66613c0b0b77",
+      "name": "Կոմպոզիտոր հյուրանոց Դիլիջան",
+      "latitude": 40.690556,
+      "longitude": 44.841389,
+      "address": "Հայաստան, Դիլիջան, Առնո Բաբաջանյան փ., 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450107",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "255c960e-9191-47f6-8479-8eeb106888a0",
+              "key": "965345010701",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "7435c96d-c185-c7a5-d466-2a60efc76990",
+      "name": "Գրանդ Ռեզորթ Ջերմուկ",
+      "latitude": 39.838582,
+      "longitude": 45.666891,
+      "address": "ՀՀ, Վայոց Ձորի մարզ, ք․ Ջերմուկ, Շահումյանի փ․ 7/5",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450007",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206737",
+              "key": "965345000701",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450022",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206768",
+              "key": "965345002201",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "768ba0d4-9e92-802c-33bf-7ce9a88eb0e4",
+      "name": "«Բյուրական Պանդոկ» ռեստորան",
+      "latitude": 40.339202,
+      "longitude": 44.268645,
+      "address": "ՀՀ, Արագածոտնի մարզ, գ․ Բյուրական\n1-ին փ․ 6-րդ նրբ., 1/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450009",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206739",
+              "key": "965345000901",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450024",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206770",
+              "key": "965345002401",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "796b486a-e855-4e42-963a-d15da5986b7f",
+      "name": "Գարգառ բեյքերի",
+      "latitude": 40.946679,
+      "longitude": 44.442395,
+      "address": "Հայաստան, Լոռու մարզ, գյուղ Գարգառ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0074",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "94a4e05c-cbf6-452a-a7df-d754b276d704",
+              "key": "MT00741",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "d4d9b9c0-7007-4a28-9c2a-d99ed86aac60",
+              "key": "MT00742",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0083",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "a38b0fea-c989-4b41-8d46-067f3d78f0b3",
+              "key": "MT00831",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "da4303e1-712a-4e9d-9253-e4fa24c0cb56",
+              "key": "MT00832",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450141",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "e97b868d-ac40-4ca8-8aff-3b66e0b6b7b2",
+              "key": "965345014101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "7babb061-7a20-4f85-bc3d-f7b44f1a8fb9",
+      "name": "Գյումրի \"Թիմ Տելեկոմ Արմենիա\"",
+      "latitude": 40.787376,
+      "longitude": 43.848407,
+      "address": "Հայաստան, 3102, Շիրակի մարզ, Գյումրի Գորկու փող., 65 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0093",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "1599eb18-a199-429c-9100-e8e5e56b29e0",
+              "key": "MT00931",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "681486db-baf7-4e0d-a8d0-11b98b1916c4",
+              "key": "MT00932",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0094",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e325c130-8b9b-4b50-ae31-4d1854173cbb",
+              "key": "MT009401",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ecade561-8f5d-435e-bdfb-cc0429a30155",
+              "key": "MT009402",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450085",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ecade561-8f5d-435e-bdfb-cc0429a30156",
+              "key": "965345008501",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "7bc2beea-49cf-47a0-868f-9a85ffe76c3a",
+      "name": "«Ուիգմոր Գրուփ» բժշկական կենտրոն",
+      "latitude": 40.203791,
+      "longitude": 44.531593,
+      "address": "Հայաստան, 0014, Երևան Հրաչյա Ներսիսյան փող., 10ա շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450077",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "0e5723e6-9924-481c-b0d0-20c5fdaea6dd",
+              "key": "965345007701",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450076",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "9d3ddba5-3879-42df-acee-4c445b61889e",
+              "key": "965345007601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450070",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e54cd740-1dee-4b12-9f06-06fad85cffb6",
+              "key": "965345007001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "7c984ad3-90c9-49a7-bee7-d3baac8e356c",
+      "name": "Վաղարշապատ \"Թիմ Տելեկոմ Արմենիա\"",
+      "latitude": 40.163167,
+      "longitude": 44.293983,
+      "address": "Հայաստան, 1101, Արմավիրի մարզ, Էջմիածին Մաշտոցի փող., 2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0117",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "13c2596b-43a5-4a91-9385-ebfca5bd6f33",
+              "key": "MT011701",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a91b041-4ee0-45c9-9459-4e98c5106cde",
+              "key": "MT011702",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0118",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "4e7336f0-3f62-4fe7-9f4f-d2cbb63d2455",
+              "key": "MT011801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 31
+            },
+            {
+              "connectorId": "8410b35e-97f4-45ec-97c3-ff8cad787331",
+              "key": "MT011802",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "7f0e6f0c-5675-b931-68bb-c2c8f6c1823b",
+      "name": "«Գետափ» Դիլիջանի ռեստորանային և հյուրանոցային համալիր",
+      "latitude": 40.759606,
+      "longitude": 44.907322,
+      "address": "ՀՀ, Տավուշի մարզ, ք. Դիլիջան, Թբիլիսյան խճուղի 44",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450005",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206735",
+              "key": "965345000501",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450020",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206755",
+              "key": "965345002001",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "85852254-fb53-4943-bc6d-b0924219b2c8",
+      "name": "Սթոուն Բրիջ ռեստորան",
+      "latitude": 40.298203,
+      "longitude": 44.366944,
+      "address": "ք․ Աշտարակ, Քասախի կիրճ 22/2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450003",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "0ea8a73e-d9a0-4350-891d-458c8c7bd2f3",
+              "key": "965345000301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "85c5c4d8-5e29-490d-a086-071db5374a02",
+      "name": "Udrive Սեբաստիա 2",
+      "latitude": 40.162471,
+      "longitude": 44.466278,
+      "address": "ք․ Երևան, Սեբաստիա 170/2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450016",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "0aa134b7-fe38-4500-9189-c995b5bb77ca",
+              "key": "965345001601",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450096",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "bf1fc8fe-f4d2-45ef-826b-a010dca9fb8d",
+              "key": "965345009601",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "872c3d58-132c-4bc3-8787-ef4cefb0dd4d",
+      "name": "Մինա հյուրանոց",
+      "latitude": 39.522441,
+      "longitude": 46.332691,
+      "address": "Հայաստան, Սյունիքի մարզ, Գորիս Մաշտոցի փող., 169 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450126",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "36cbbfb9-cc39-4001-bf47-9f5be84484e5",
+              "key": "965345012601",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "8a8be554-d5a5-4aa6-b32d-5811856aa5aa",
+      "name": "Իմպեր Ղարս",
+      "latitude": 38.898636,
+      "longitude": 46.24638,
+      "address": "Սյունիքի մարզ, ք․ Մեղրի, Գործարարների 10",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450110",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "6c238f83-fb8e-4493-a686-6c71c87ab19f",
+              "key": "965345011001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "8bb0dc46-9d71-40e7-b52b-d92a0d1630ec",
+      "name": "Թուֆենկյան Ավան Ձորագետ հյուրանոց",
+      "latitude": 40.960504,
+      "longitude": 44.633985,
+      "address": "ՀՀ, 2035, Լոռու մարզ, Ձորագետ գյուղ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0085",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "1bf53b59-03f4-4aba-9346-852d4b7e523b",
+              "key": "MT008501",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "21b6da19-b994-427d-8077-fd9ae6190aa1",
+              "key": "MT008502",
+              "connectorType": "CCS1",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0084",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "9d23b197-7231-4d3f-b20e-23bfebe73a90",
+              "key": "MT008401",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "e0d9f930-cf01-4f3a-ab6e-638bcaeba042",
+              "key": "MT008402",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450049",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e0d9f930-cf01-4f3a-ab6e-638bcaeba044",
+              "key": "965345004901",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450064",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "e0d9f930-cf01-4f3a-ab6e-638bcaeba049",
+              "key": "965345006401",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "8c43f80c-14bf-4bd7-b3ae-7dd8b4e37e45",
+      "name": "Արարատ \"Գասպար 51\"",
+      "latitude": 39.819035,
+      "longitude": 44.724974,
+      "address": "ՀՀ, Արարատի մարզ, գ.Արարատ, Երևանյան խճ. 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0099",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "00fe3a93-d137-4cb1-a86d-e3f30642a70e",
+              "key": "MT009901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314075",
+              "key": "MT009902",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0100",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314076",
+              "key": "MT010001",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314079",
+              "key": "MT010002",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450092",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "9c451ce0-11cc-4362-9fea-05f872d4d82c",
+              "key": "965345009201",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "8e323cdf-0541-72e9-c1fc-4eb148c120cd",
+      "name": "«Խնոցի» ռեստորան",
+      "latitude": 40.194905,
+      "longitude": 44.609874,
+      "address": "ՀՀ, Կոտայքի մարզ, Ջրվեժ 3րդ դաշտ 7/6\n",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450011",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206741",
+              "key": "965345001101",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450026",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206743",
+              "key": "965345002601",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "9148d596-f4ee-4ff9-abe0-6b188350c7af",
+      "name": "«Եղեգնաձոր»  Ֆուդ-Կորտ",
+      "latitude": 39.755447,
+      "longitude": 45.339808,
+      "address": "ՀՀ,  Վայոց ձորի մարզ, ք․ Եղեգնաձոր\nԵրևանյան խճուղի 7",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450014",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206801",
+              "key": "965345001401",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450032",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206802",
+              "key": "965345003201",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "985e1446-2907-4cb6-aadf-5a8f3f6c5d55",
+      "name": "Ավան",
+      "latitude": 40.217563,
+      "longitude": 44.563224,
+      "address": "Երևան,Աճառյան փող. 1-ին փակուղի, 6 տուն",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0063",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "1f3f011d-c3c9-4b22-9034-a67f4bdc9c92",
+              "key": "MT006301",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 140,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "9a909148-01f1-4e8d-9c49-0bec3fd5fe83",
+              "key": "MT006302",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 140,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0092",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "afc9cb3a-0393-489e-a779-6a9ea0c14441",
+              "key": "MT009201",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 140,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "c216bc7a-bb87-4ecd-9d3c-908e7da74321",
+              "key": "MT009202",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 140,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450031",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "c216bc7a-bb87-4ecd-9d3c-908e7da74324",
+              "key": "965345003101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "a00679a8-a9ff-417c-8169-e27754c5d1eb",
+      "name": "Արցախ Հյուրանոց 1",
+      "latitude": 40.151814,
+      "longitude": 44.503178,
+      "address": "Հայաստան, 0026, Երևան Սևանի փող., 116 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450094",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3b0ac65e-b622-465c-a226-c0aedfe05411",
+              "key": "965345009401",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "a63e93ed-84dd-4605-89b4-dba547f7dda0",
+      "name": "Դիլիջանի Տուն 3",
+      "latitude": 40.743139,
+      "longitude": 44.88195,
+      "address": "Հայաստան, Տավուշի մարզ, Դիլիջան Օրջոնիկիձեի փող., 36/6",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450104",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "5e322c31-760a-4e2e-b5e8-c66149263b73",
+              "key": "965345010401",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "a7c78523-3c26-4fbf-9cc3-fce31b93df29",
+      "name": "«Լաքշրի Գարդեն Գառնի» հանգստյան գոտի",
+      "latitude": 40.124678,
+      "longitude": 44.696853,
+      "address": "ՀՀ, մարզ Կոտայք, գ. Գառնի Ազատամարտիկների խճ․ 77/7",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450036",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206785",
+              "key": "965345003601",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450041",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206786",
+              "key": "965345004101",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "a9e8ba25-e2e5-fd4a-7003-f32c6ec042ba",
+      "name": "«Դիլիջազ» հյուրանոց և ռեստորան",
+      "latitude": 40.77815,
+      "longitude": 44.926268,
+      "address": "ՀՀ, Տավուշի մարզ, ք․ Դիլիջան, Թեղուտի 2-րդ փ․ 1/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450006",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206736",
+              "key": "965345000601",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450021",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206746",
+              "key": "965345002101",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "af2f79c9-fc45-42fc-9bc1-370e9b0b6acc",
+      "name": "Գեղարդ ռեստորան",
+      "latitude": 40.137653,
+      "longitude": 44.815319,
+      "address": "Հայաստան, Կոտայքի մարզ Գեղարդի խճուղի 36/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450125",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "0cb6fd5c-d718-4743-9a2b-1b40b6949dba",
+              "key": "965345012501",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450124",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "35b9ef27-0edd-434e-9be9-9b80ac6046ca",
+              "key": "965345012401",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "b5160e3d-0e69-4002-ae34-8b6fd3be4e8b",
+      "name": "Մեգամոլ Արմենիա",
+      "latitude": 40.195744,
+      "longitude": 44.566414,
+      "address": "Հայաստան, 0056, Երևան Նոր Նորքի 3-րդ զանգված, Գայի պող., 16",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0107",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "206b47f8-f822-4d16-ab2d-2ce4d646c922",
+              "key": "MT010701",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 34
+            },
+            {
+              "connectorId": "b39002c1-90ee-448f-8363-99975cc1eb2d",
+              "key": "MT010702",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0108",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "2a0e800a-fc17-46a6-a20a-a9703e1e40fc",
+              "key": "MT010801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "d76fc802-f6c9-4ad2-97b2-fa40c20bd900",
+              "key": "MT010802",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450131",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "058adaae-7831-45b4-a584-900442a29572",
+              "key": "965345013101",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "b7e380b5-ef70-490b-80ca-c379cf370b6c",
+      "name": "Խաղաղ Դոն",
+      "latitude": 40.12814,
+      "longitude": 44.526948,
+      "address": "ք․Երևան, Էրեբունի, Խաղաղ Դոնի 19/14",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450128",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "5716b234-0bb0-4e84-a0fe-db2c8a3290a8",
+              "key": "965345012801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "b95fd8b6-1d9c-4529-9552-7f8b0de2be23",
+      "name": "Դիլի Թաուն 1",
+      "latitude": 40.743566,
+      "longitude": 44.85407,
+      "address": "Հայաստան,Դիլիջան,Անդրանիկի փող. 3-րդ նրբ., 11 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450113",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "42b97f7b-14bb-4038-a59f-234926f6c9f9",
+              "key": "965345011301",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450114",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "d0883b22-3015-4db9-b187-6a369ffbc58a",
+              "key": "965345011401",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "bb244b4a-a6de-4281-9934-cc930f050c46",
+      "name": "«Պապանինո Հաուս» ռեստորան",
+      "latitude": 40.739758,
+      "longitude": 44.853351,
+      "address": "ՀՀ, ք․Դիլիջան, Կալինինի փ․ 104",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450055",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206775",
+              "key": "965345005501",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450054",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206776",
+              "key": "965345005401",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "bdd547a6-6bf0-406d-b73a-1cf97b07b1a1",
+      "name": "Գարաժ Մաստերս Մոլ",
+      "latitude": 40.209194,
+      "longitude": 44.46483,
+      "address": "ՀՀ, Երևան, Մազմանյան 1 փ․",
       "phone": "+37410300100",
       "chargePointInfos": [
         {
@@ -56,15 +4056,1429 @@
           "stationNumber": "1",
           "connectors": [
             {
-              "connectorId": "aa7d6ff8-c41c-4aef-8d33-014ce780a5ca",
-              "key": "MT00661",
-              "connectorType": "TYPE2",
-              "connectorTypeGroup": "AC",
-              "power": 11,
+              "connectorId": "20014a98-5abd-4cab-a78d-bba483688f0e",
+              "key": "MT006601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206815",
+              "key": "MT006602",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
               "statusDescription": "Հասանելի",
               "status": "1",
               "isPrepairing": false,
-              "price": 100,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0068",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206816",
+              "key": "MT006801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206859",
+              "key": "MT006802",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 89
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0124",
+          "isSeperated": false,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "1bf89bc6-c9af-4d53-bb59-a69d54665ba3",
+              "key": "MT01241",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "c18d9a81-c2c6-4205-a68e-109344fd03ec",
+              "key": "MT01242",
+              "connectorType": "NACS (Tesla)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450033",
+          "isSeperated": true,
+          "stationNumber": "4",
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206861",
+              "key": "965345003301",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Լիցքավորվում է",
+              "status": "6",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450047",
+          "isSeperated": true,
+          "stationNumber": "5",
+          "connectors": [
+            {
+              "connectorId": "b51294d7-059a-4c32-bda8-82741ee7d29c",
+              "key": "965345004701",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "c40901ea-897a-4f7e-9d64-c53025783eb5",
+      "name": "Ուիգմոր Քլինիք",
+      "latitude": 40.185358,
+      "longitude": 44.509658,
+      "address": "Հայաստան, 0002, Երևան Պուշկինի փող., 56 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450116",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "5951440e-35ae-4786-b6be-bad2e1a21ab4",
+              "key": "965345011601",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "cd813b5d-5fad-47a6-acd6-ae63082d02cc",
+      "name": "«Զով Գարդեն»",
+      "latitude": 40.255003,
+      "longitude": 44.495677,
+      "address": "ՀՀ, գ․ Զովունի, 1 փողոց 260 ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450050",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206783",
+              "key": "965345005001",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450034",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206784",
+              "key": "965345003401",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "d043ef84-03bd-44bb-9c74-faf75cef6f6b",
+      "name": "Վայք Ամրոց հյուրանոց",
+      "latitude": 39.696333,
+      "longitude": 45.461792,
+      "address": "Հայաստան, 3801, Վայոց ձորի մարզ, Վայք Երկրաբանների փող., 2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450108",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "b0cc8bc7-5738-422f-8776-d5e7af09a861",
+              "key": "965345010801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "d5455871-4774-45a5-8b29-e42bebebaf63",
+      "name": "Դավթաշեն \"Թիմ Տելեկոմ Արմենիա\"",
+      "latitude": 40.220269,
+      "longitude": 44.493726,
+      "address": "ք․ Երևան, Փիրումյանների 25/1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0097",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "256beaa6-d10d-4452-84bb-fb0825b36caa",
+              "key": "MT009701",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "378ecb26-d8cc-40dd-ae8d-80b55731e398",
+              "key": "MT009702",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0098",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "378ecb26-d8cc-40dd-ae8d-80b55731e401",
+              "key": "MT009801",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "378ecb26-d8cc-40dd-ae8d-80b55731e402",
+              "key": "MT009802",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450086",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "378ecb26-d8cc-40dd-ae8d-80b55731e404",
+              "key": "965345008601",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "dab7b8df-6ad2-429c-8f41-edcf825b8ae6",
+      "name": "\"Նայս Հաուս հյուրանոց\" Մեղրի",
+      "latitude": 38.904208,
+      "longitude": 46.239388,
+      "address": "ք.Մեղրի Ադելյան 15ա/23",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450069",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "290f90ce-722e-4cac-b2dd-a90f94563a9d",
+              "key": "965345006901",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "dce25b2e-0d24-4273-8b17-439bba5a87bb",
+      "name": "Ռ. Յոլյանի անվան արյունաբանական կենտրոն",
+      "latitude": 40.205,
+      "longitude": 44.531444,
+      "address": "Հայաստան, 0014, Երևան Հրաչյա Ներսիսյան փող., 7",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450087",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "2c39832d-3e3a-4b8f-b83c-a7a28724aa91",
+              "key": "965345008701",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450100",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "6e1222ce-2f70-43b4-94a7-9221af136999",
+              "key": "965345010001",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450101",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "8ae374d9-2dd0-4dbc-81e3-f9c52472dff0",
+              "key": "965345010101",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "e01170b3-9cc9-4a8d-bb35-97a7ab6d9b7a",
+      "name": "Դիլի Թաուն 2",
+      "latitude": 40.744233,
+      "longitude": 44.855134,
+      "address": "Հայաստան,Դիլիջան,Անդրանիկի փող. 3-րդ նրբ., 11 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450115",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3cecb806-367b-44b3-88a3-700b9d3da5e4",
+              "key": "965345011501",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "e2a74fd6-f27b-4f03-986e-6e91a68b2169",
+      "name": "«Ռոյալ Երևան» ռեստորան",
+      "latitude": 40.193094,
+      "longitude": 44.586681,
+      "address": "ՀՀ,  ք․ Երևան, Բագրևանդի 102",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450044",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206805",
+              "key": "965345004401",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450056",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206806",
+              "key": "965345005601",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "e2d15ab8-0f61-4fd0-ba4b-a6f4be5c4fe8",
+      "name": "Աբովյան \"Թիմ Տելեկոմ Արմենիա\"",
+      "latitude": 40.277353,
+      "longitude": 44.628573,
+      "address": "Բարեկամության հրապարակ, 2",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0079",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "277e13cf-070b-4192-8051-d6f58473891b",
+              "key": "MT007901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ab9be9c9-678f-4e72-a907-935c9c68b967",
+              "key": "MT007902",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0080",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "b1e81d67-824a-4dd2-9f34-dd7cf5acec6b",
+              "key": "MT008001",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "f42a9491-4c6a-49ff-a32d-9e774c679c81",
+              "key": "MT008002",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 80,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450083",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "f42a9491-4c6a-49ff-a32d-9e774c679c83",
+              "key": "965345008301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "e87109e7-5d63-4b79-9c61-ec3fe2b61ff1",
+      "name": "Սարիգյուղ \"Սարի Մարկետ\"",
+      "latitude": 41.028805,
+      "longitude": 45.150435,
+      "address": "Տավուշի մարզ, Իջևան համայնքի գյուղ Սարիգյուղ, 2-րդ փողոց 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0101",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a4821b43-784b-427c-9629-20966f637c4a",
+              "key": "MT01011",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "a4821b43-784b-427c-9629-20966f637c4b",
+              "key": "MT01012",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0102",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a4821b43-784b-427c-9629-20966f637c4c",
+              "key": "MT010201",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "a4821b43-784b-427c-9629-20966f637c4d",
+              "key": "MT010202",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450093",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "ebad7489-54ed-4918-8e32-9475c9d0478e",
+              "key": "965345009301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "e8909321-6da5-4634-a553-9e615a140785",
+      "name": "Մուլտի Մեջիք Մոլ",
+      "latitude": 40.245289,
+      "longitude": 44.577136,
+      "address": "Հայաստան, 2228, Կոտայքի մարզ, Վերին Պտղնի գյուղ 5-րդ փողոցի 1-ին փակուղի, 5 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0113",
+          "isSeperated": false,
+          "stationNumber": "1",
+          "connectors": [
+            {
+              "connectorId": "04f13ef6-8474-4d1c-a515-fd2f80c8b172",
+              "key": "MT011301",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "0695c88e-8922-4d0a-bb13-cb8a841af2fe",
+              "key": "MT011302",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0114",
+          "isSeperated": false,
+          "stationNumber": "2",
+          "connectors": [
+            {
+              "connectorId": "90d451a5-c4f6-4a68-b9da-77b749c0ff8c",
+              "key": "MT011401",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "ef5f4b81-c64a-4e76-a331-f52c4e6e4d29",
+              "key": "MT011402",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450130",
+          "isSeperated": true,
+          "stationNumber": "3",
+          "connectors": [
+            {
+              "connectorId": "8ce669b3-3627-40fa-858f-26555c469f99",
+              "key": "965345013001",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "f23341a2-e2aa-4720-ba84-3e046ee8d71f",
+      "name": "Աղվերան Արարատ ռեզորթ",
+      "latitude": 40.489093,
+      "longitude": 44.594539,
+      "address": "Հայաստան, Կոտայքի մարզ, Արզական գյուղ Անտառային փող., 11 շ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450080",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "2bae7b2d-8927-47c5-94ed-6a8c71115a97",
+              "key": "965345008001",
+              "connectorType": "Type 2 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450078",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "a453b878-4060-47a3-9b92-ac916b841534",
+              "key": "965345007801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450079",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "c235799d-cd38-44a3-8b3c-beb7714e2070",
+              "key": "965345007901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "f4ecf675-cc2d-45e7-8321-9adad8074a8e",
+      "name": "Նոյեմբերյան",
+      "latitude": 41.221398,
+      "longitude": 44.893938,
+      "address": "ՀՀ, Տավուշի մարզ, գ․ Հաղթանակ, 6-րդ փող",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0067",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206331",
+              "key": "MT00671",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206332",
+              "key": "MT00672",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "ST003",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206342",
+              "key": "ST00301",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206333",
+              "key": "ST00302",
+              "connectorType": "CHAdeMO",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206344",
+              "key": "ST00303",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450051",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206369",
+              "key": "965345005101",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450045",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206370",
+              "key": "965345004501",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "f565abcb-3120-4a43-8ebc-95dc23eb9942",
+      "name": "«ԹԱՅՄ ԹՈՒ ԻԹ» Գառնի",
+      "latitude": 40.118715,
+      "longitude": 44.71584,
+      "address": "Հայաստան, Կոտայքի մարզ, Գառնի գյուղ\nԱզատամարտիկների փող., 4 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450068",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "1a68a40c-1410-435a-9fe7-1bae7aaafef3",
+              "key": "965345006801",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "f76651ef-a317-417f-bc86-2f570b8c0d39",
+      "name": "«Ռեդ Գրուպ» ՍՊԸ",
+      "latitude": 40.240097,
+      "longitude": 44.529744,
+      "address": "Կոտայքի մարզ, Քանաքեռավան համայնք, Երևանյան խճուղի թիվ 1",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450037",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "4d3bffda-94cc-4b24-8f69-aa48472c7e89",
+              "key": "965345003701",
+              "connectorType": "Type 2 / Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450038",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "6cd28989-42eb-4609-96c6-7596e930ef6a",
+              "key": "965345003801",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "fa3c2c42-d39b-4662-b5f9-98880d68d6a2",
+      "name": "Դիլիջանի Տուն 1",
+      "latitude": 40.743122,
+      "longitude": 44.882019,
+      "address": "Հայաստան, Տավուշի մարզ, Դիլիջան Օրջոնիկիձեի փող., 36/4",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "9653450103",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "0df5c368-3e10-4992-9911-9c726e303e30",
+              "key": "965345010301",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "fe206cf0-88ec-407d-ae14-46c57079e565",
+      "name": "Զեյթուն / Երևան Սիթի",
+      "latitude": 40.203108,
+      "longitude": 44.544828,
+      "address": "ՀՀ, Երևան, Ռուբինյանց փող. 15/5",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0069",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "23cc672e-245d-4d93-bd4c-23cfb96e671d",
+              "key": "MT006901",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "23cc672e-245d-4d93-bd4c-23cfb96e671e",
+              "key": "MT006902",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0060",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206864",
+              "key": "MT00601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206865",
+              "key": "MT00602",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450097",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "bf1f8d22-0b87-4394-9d10-4ac1270ad4a4",
+              "key": "965345009701",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "ff63fd9f-a2ab-4336-b28c-3d6c93de8e18",
+      "name": "Վայք",
+      "latitude": 39.682218,
+      "longitude": 45.486445,
+      "address": "ՀՀ, Վայոց ձորի մարզ, հ․ Վայք, գ․ Զառիթափ, 25-րդ փող. 29 հ․ ",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0072",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206823",
+              "key": "MT00721",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206824",
+              "key": "MT00722",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0073",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206825",
+              "key": "MT007301",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Զբաղված",
+              "status": "2",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206826",
+              "key": "MT007302",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450053",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206992",
+              "key": "965345005301",
+              "connectorType": "Type 2 / GB/T",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450065",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206993",
+              "key": "965345006501",
+              "connectorType": "Type 1 / TESLA",
+              "connectorTypeGroup": "AC",
+              "power": 7,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "ff63fd9f-a2ab-4336-b28c-3d6c93de8e60",
+      "name": "Շիրակ Մոլ",
+      "latitude": 40.796558,
+      "longitude": 43.850528,
+      "address": "Հայաստան, 3103, Շիրակի մարզ, Գյումրի\nՊռոշյան փող., 77/7 շենք",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0075",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206928",
+              "key": "MT00751",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206929",
+              "key": "MT00752",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0076",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206930",
+              "key": "MT007601",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206931",
+              "key": "MT007602",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 160,
+              "statusDescription": "Տեխ. սպասարկում",
+              "status": "4",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "9653450084",
+          "isSeperated": true,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "65011d86-6baa-4558-ae73-fd2773dce289",
+              "key": "965345008401",
+              "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+              "connectorTypeGroup": "AC",
+              "power": 22,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "ff63fd9f-a2ab-4336-b28c-3d6c93de8e61",
+      "name": "Գոգավան",
+      "latitude": 41.204947,
+      "longitude": 44.318443,
+      "address": "Հայաստան, Լոռու մարզ, Գոգավան գյուղ (Սարչապետ համայնք)",
+      "phone": "+37410300100",
+      "chargePointInfos": [
+        {
+          "chargePointId": "MT0077",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206932",
+              "key": "MT00771",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206933",
+              "key": "MT00772",
+              "connectorType": "CCS1 / Tesla(< 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            }
+          ]
+        },
+        {
+          "chargePointId": "MT0078",
+          "isSeperated": false,
+          "stationNumber": null,
+          "connectors": [
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206934",
+              "key": "MT00781",
+              "connectorType": "GB/T",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
+              "stateOfBattery": 0
+            },
+            {
+              "connectorId": "3a42b87f-4602-91b4-9d52-dff9f9206935",
+              "key": "MT00782",
+              "connectorType": "CCS2 / Tesla(> 2022)",
+              "connectorTypeGroup": "DC",
+              "power": 60,
+              "statusDescription": "Հասանելի",
+              "status": "1",
+              "isPrepairing": false,
+              "price": 120,
               "stateOfBattery": 0
             }
           ]

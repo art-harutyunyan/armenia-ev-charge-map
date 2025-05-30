@@ -1,0 +1,278 @@
+{
+  "name": "Արարատ \"Գասպար 51\"",
+  "latitude": 39.819035,
+  "longitude": 44.724974,
+  "address": "ՀՀ, Արարատի մարզ, գ.Արարատ, Երևանյան խճ. 1",
+  "phone": "+37410300100",
+  "status": "1",
+  "chargePointInfos": [
+    {
+      "stationName": "Ararat \"Gaspar 51\"",
+      "connectors": [
+        {
+          "connectorId": "00fe3a93-d137-4cb1-a86d-e3f30642a70e",
+          "key": "MT009901",
+          "connectorType": "GB/T",
+          "connectorTypeGroup": "DC",
+          "power": 160,
+          "statusDescription": "Հասանելի",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0,
+          "adapterOptions": null
+        },
+        {
+          "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314075",
+          "key": "MT009902",
+          "connectorType": "CCS1 / Tesla(< 2022)",
+          "connectorTypeGroup": "DC",
+          "power": 160,
+          "statusDescription": "Հասանելի",
+          "status": "1",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0
+        }
+      ]
+    },
+    {
+      "chargePointId": "MT0100",
+      "isSeperated": false,
+      "stationNumber": null,
+      "stationName": "Ararat \"Gaspar 51\"",
+      "connectors": [
+        {
+          "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314076",
+          "key": "MT010001",
+          "connectorNumber": 1,
+          "connectorTypeId": 4,
+          "connectorType": "GB/T",
+          "connectorTypeGroup": "DC",
+          "power": 160,
+          "powerTypeId": 6,
+          "systemChargerTypeId": 1,
+          "systemConnectorTypeId": 1,
+          "statusDescription": "Հասանելի",
+          "status": "1",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0,
+          "adapterOptions": null
+        },
+        {
+          "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314079",
+          "key": "MT010002",
+          "connectorNumber": 2,
+          "connectorTypeId": 6,
+          "connectorType": "CCS2 / Tesla(> 2022)",
+          "connectorTypeGroup": "DC",
+          "power": 160,
+          "powerTypeId": 6,
+          "systemChargerTypeId": 1,
+          "systemConnectorTypeId": 3,
+          "statusDescription": "Հասանելի",
+          "status": "1",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0,
+          "adapterOptions": [
+            {
+              "systemAdapterOptionId": 2,
+              "identifier": "adapter_onlyccs2",
+              "icon": "adapter_onlyccs2_icon",
+              "name": "adapter_onlyccs2_name",
+              "info": "adapter_onlyccs2_info",
+              "details": null,
+              "completionInfo": null
+            },
+            {
+              "systemAdapterOptionId": 3,
+              "identifier": "adapter_tesla",
+              "icon": "adapter_tesla_icon",
+              "name": "adapter_tesla_name",
+              "info": "adapter_tesla_info",
+              "details": {
+                "videoUrl": "adapter_tesla_video",
+                "bannerUrl": "adapter_tesla_banner",
+                "content": "adapter_tesla_help"
+              },
+              "completionInfo": "adapter_tesla_completion"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "chargePointId": "9653450092",
+      "isSeperated": true,
+      "stationNumber": null,
+      "stationName": "Ararat \"Gaspar 51\"",
+      "connectors": [
+        {
+          "connectorId": "9c451ce0-11cc-4362-9fea-05f872d4d82c",
+          "key": "965345009201",
+          "connectorNumber": 1,
+          "connectorTypeId": 8,
+          "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+          "connectorTypeGroup": "AC",
+          "power": 22,
+          "powerTypeId": 2,
+          "systemChargerTypeId": 2,
+          "systemConnectorTypeId": 5,
+          "statusDescription": "Հասանելի",
+          "status": "1",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0,
+          "adapterOptions": null
+        }
+      ]
+    }
+  ],
+  "connectors": [
+    {
+      "connectorId": "9c451ce0-11cc-4362-9fea-05f872d4d82c",
+      "key": "965345009201",
+      "connectorNumber": 1,
+      "connectorTypeId": 8,
+      "connectorType": "Type 2 / GB/T / TESLA / Type 1",
+      "connectorTypeGroup": "AC",
+      "power": 22,
+      "powerTypeId": 2,
+      "systemChargerTypeId": 2,
+      "systemConnectorTypeId": 5,
+      "statusDescription": "Հասանելի",
+      "status": "1",
+      "isPrepairing": false,
+      "price": 120,
+      "stateOfBattery": 0,
+      "adapterOptions": null
+    },
+    {
+      "connectorId": "00fe3a93-d137-4cb1-a86d-e3f30642a70e",
+      "key": "MT009901",
+      "connectorNumber": 1,
+      "connectorTypeId": 4,
+      "connectorType": "GB/T",
+      "connectorTypeGroup": "DC",
+      "power": 160,
+      "powerTypeId": 6,
+      "systemChargerTypeId": 1,
+      "systemConnectorTypeId": 1,
+      "statusDescription": "Հասանելի",
+      "status": "1",
+      "isPrepairing": false,
+      "price": 120,
+      "stateOfBattery": 0,
+      "adapterOptions": null
+    },
+    {
+      "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314075",
+      "key": "MT009902",
+      "connectorNumber": 2,
+      "connectorTypeId": 5,
+      "connectorType": "CCS1 / Tesla(< 2022)",
+      "connectorTypeGroup": "DC",
+      "power": 160,
+      "powerTypeId": 6,
+      "systemChargerTypeId": 1,
+      "systemConnectorTypeId": 2,
+      "statusDescription": "Հասանելի",
+      "status": "1",
+      "isPrepairing": false,
+      "price": 120,
+      "stateOfBattery": 0,
+      "adapterOptions": [
+        {
+          "systemAdapterOptionId": 1,
+          "identifier": "adapter_onlyccs1",
+          "icon": "adapter_onlyccs1_icon",
+          "name": "adapter_onlyccs1_name",
+          "info": "adapter_onlyccs1_info",
+          "details": null,
+          "completionInfo": null
+        },
+        {
+          "systemAdapterOptionId": 4,
+          "identifier": "adapter_old_tesla",
+          "icon": "adapter_old_tesla_icon",
+          "name": "adapter_old_tesla_name",
+          "info": "adapter_old_tesla_info",
+          "details": {
+            "videoUrl": "adapter_old_tesla_video",
+            "bannerUrl": "adapter_old_tesla_banner",
+            "content": "adapter_old_tesla_help"
+          },
+          "completionInfo": "adapter_old_tesla_completion"
+        }
+      ]
+    },
+    {
+      "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314076",
+      "key": "MT010001",
+      "connectorNumber": 1,
+      "connectorTypeId": 4,
+      "connectorType": "GB/T",
+      "connectorTypeGroup": "DC",
+      "power": 160,
+      "powerTypeId": 6,
+      "systemChargerTypeId": 1,
+      "systemConnectorTypeId": 1,
+      "statusDescription": "Հասանելի",
+      "status": "1",
+      "isPrepairing": false,
+      "price": 120,
+      "stateOfBattery": 0,
+      "adapterOptions": null
+    },
+    {
+      "connectorId": "98c3f561-f8c8-46ca-b5f5-fed25c314079",
+      "key": "MT010002",
+      "connectorNumber": 2,
+      "connectorTypeId": 6,
+      "connectorType": "CCS2 / Tesla(> 2022)",
+      "connectorTypeGroup": "DC",
+      "power": 160,
+      "powerTypeId": 6,
+      "systemChargerTypeId": 1,
+      "systemConnectorTypeId": 3,
+      "statusDescription": "Հասանելի",
+      "status": "1",
+      "isPrepairing": false,
+      "price": 120,
+      "stateOfBattery": 0,
+      "adapterOptions": [
+        {
+          "systemAdapterOptionId": 2,
+          "identifier": "adapter_onlyccs2",
+          "icon": "adapter_onlyccs2_icon",
+          "name": "adapter_onlyccs2_name",
+          "info": "adapter_onlyccs2_info",
+          "details": null,
+          "completionInfo": null
+        },
+        {
+          "systemAdapterOptionId": 3,
+          "identifier": "adapter_tesla",
+          "icon": "adapter_tesla_icon",
+          "name": "adapter_tesla_name",
+          "info": "adapter_tesla_info",
+          "details": {
+            "videoUrl": "adapter_tesla_video",
+            "bannerUrl": "adapter_tesla_banner",
+            "content": "adapter_tesla_help"
+          },
+          "completionInfo": "adapter_tesla_completion"
+        }
+      ]
+    }
+  ],
+  "cars": [
+    {
+      "carVendor": "Toyota",
+      "carModel": "bZ4X AWD",
+      "powerCapacity": 100,
+      "fullCharge": 12000
+    }
+  ]
+}

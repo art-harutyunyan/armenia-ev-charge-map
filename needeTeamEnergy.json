@@ -1,0 +1,43 @@
+{
+  "chargePointId": "5f823136-7eeb-43ff-ac84-fb9f020769eb",
+
+  "name": "Մեգա լիցքավորման կայան",
+  "latitude": 40.170411,
+  "longitude": 44.525255,
+  "address": "ՀՀ, Երևան, Չարենց փող, 76",
+  "phone": "+37410300100",
+
+  "chargePointInfos": [
+    {
+      "chargePointId": "MT0065",
+      "isSeperated": false,
+      "stationNumber": "1",
+      "connectors": [
+        {
+          "connectorId": "ff7d6ff8-c41c-4aef-8d33-014ce780a5ca",
+          "key": "MT00651",
+          "connectorType": "GB/T",
+          "connectorTypeGroup": "DC",
+          "power": 80,
+          "statusDescription": "Հասանելի",
+          "status": "1",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 0
+        },
+        {
+          "connectorId": "c125c807-c6f7-48db-bb6c-fb4ca8621da1",
+          "key": "MT00652",
+          "connectorType": "CCS1 / Tesla(< 2022)",
+          "connectorTypeGroup": "DC",
+          "power": 80,
+          "statusDescription": "Լիցքավորվում է",
+          "status": "6",
+          "isPrepairing": false,
+          "price": 120,
+          "stateOfBattery": 98
+        }
+      ]
+    }
+  ]
+}
