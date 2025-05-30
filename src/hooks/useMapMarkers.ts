@@ -21,6 +21,8 @@ export const useMapMarkers = (
   };
 
   const handleMarkerClick = (station: ChargingStation) => {
+    console.log('Marker clicked for station:', station.name);
+    
     // Close all existing popups first
     closeAllPopups();
     
@@ -29,7 +31,7 @@ export const useMapMarkers = (
     
     // Create and show popup
     const popup = new mapboxgl.Popup({ 
-      offset: [0, -50],
+      offset: [0, -20],
       maxWidth: '400px',
       className: 'custom-popup',
       closeButton: true,
@@ -45,8 +47,11 @@ export const useMapMarkers = (
 
     // Add close handler
     popup.on('close', () => {
+      console.log('Popup closed for station:', station.name);
       delete popupsRef.current[station.id];
-      setActiveMarkerId(null);
+      if (activeMarkerId === station.id) {
+        setActiveMarkerId(null);
+      }
     });
   };
 
@@ -66,12 +71,12 @@ export const useMapMarkers = (
 
     // Add markers for filtered stations
     filteredStations.forEach(station => {
-      console.log('Adding marker for station:', station.name, 'at coords:', station.latitude, station.longitude);
+      console.log('Adding marker for station:', station.name);
       
       // Validate coordinates
       if (!station.latitude || !station.longitude || 
           isNaN(station.latitude) || isNaN(station.longitude)) {
-        console.error('Invalid coordinates for station:', station.name, station.latitude, station.longitude);
+        console.error('Invalid coordinates for station:', station.name);
         return;
       }
       
@@ -82,6 +87,7 @@ export const useMapMarkers = (
       // Add click handler to marker element
       markerElement.addEventListener('click', (e) => {
         e.stopPropagation();
+        console.log('Marker element clicked:', station.name);
         handleMarkerClick(station);
       });
 
@@ -112,13 +118,15 @@ export const useMapMarkers = (
         });
       }
     }
-  }, [filteredStations, mapInitialized, activeMarkerId]);
+  }, [filteredStations, mapInitialized]);
 
   // Update marker appearances when active marker changes
   useEffect(() => {
     if (!map.current || !mapInitialized) return;
 
-    // Recreate all markers with updated appearance
+    console.log('Updating marker appearances, active marker:', activeMarkerId);
+
+    // Update all markers with correct active state
     filteredStations.forEach(station => {
       const existingMarker = markersRef.current[station.id];
       if (existingMarker) {
@@ -133,6 +141,7 @@ export const useMapMarkers = (
         // Add click handler to new element
         newMarkerElement.addEventListener('click', (e) => {
           e.stopPropagation();
+          console.log('Updated marker element clicked:', station.name);
           handleMarkerClick(station);
         });
         

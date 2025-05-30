@@ -112,6 +112,7 @@
   max-width: 400px !important;
   max-height: 500px;
   overflow: hidden;
+  position: relative;
 }
 
 .mapboxgl-popup-close-button {
@@ -121,19 +122,35 @@
   right: 8px;
   top: 8px;
   z-index: 1001;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mapboxgl-popup-close-button:hover {
   color: #333;
+  background: rgba(255, 255, 255, 1);
 }
 
-/* Improve popup positioning */
+/* Improve popup positioning and ensure it's always visible */
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-content {
   margin-bottom: 15px;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-content {
   margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-content {
+  margin-left: 15px;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-content {
+  margin-right: 15px;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
@@ -144,6 +161,16 @@
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   border-bottom-color: white;
   margin-top: -1px;
+}
+
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+  border-right-color: white;
+  margin-left: -1px;
+}
+
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+  border-left-color: white;
+  margin-right: -1px;
 }
 
 /* Custom scrollbar for popup content */
