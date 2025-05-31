@@ -79,7 +79,7 @@ export const useMapMarkers = (
     }
   };
 
-  // Add markers for stations when map is initialized
+  // Add markers for stations when map is initialized or when filteredStations change
   useEffect(() => {
     if (!map.current || !mapInitialized) {
       console.log("Map not ready yet:", {
@@ -93,9 +93,8 @@ export const useMapMarkers = (
       `Adding markers for ${filteredStations.length} filtered stations`
     );
 
-    // Remove any existing markers and popups
+    // Remove any existing markers but DON'T close popups here
     Object.values(markersRef.current).forEach((marker) => marker.remove());
-    closeAllPopups();
     markersRef.current = {};
 
     // Add markers for filtered stations
@@ -113,8 +112,9 @@ export const useMapMarkers = (
         return;
       }
 
-      // Create custom marker element
-      const markerElement = createMarkerElement(station, false);
+      // Create custom marker element with current active state
+      const isActive = activeMarkerId === station.id;
+      const markerElement = createMarkerElement(station, isActive);
 
       // Add click handler to marker element with more debugging
       markerElement.addEventListener("click", (e) => {
@@ -161,48 +161,7 @@ export const useMapMarkers = (
         });
       }
     }
-  }, [filteredStations, mapInitialized]);
-
-  // Update marker appearances when active marker changes
-  useEffect(() => {
-    if (!map.current || !mapInitialized) return;
-
-    console.log("Updating marker appearances, active marker:", activeMarkerId);
-
-    // Update all markers with correct active state
-    filteredStations.forEach((station) => {
-      const existingMarker = markersRef.current[station.id];
-      if (existingMarker) {
-        const isActive = activeMarkerId === station.id;
-
-        // Remove old marker
-        existingMarker.remove();
-
-        // Create new marker with updated appearance
-        const newMarkerElement = createMarkerElement(station, isActive);
-
-        // Add click handler to new element with debugging
-        newMarkerElement.addEventListener("click", (e) => {
-          console.log("🔥 UPDATED MARKER ELEMENT CLICKED for:", station.name);
-          e.stopPropagation();
-          e.preventDefault();
-          handleMarkerClick(station);
-        });
-
-        // Ensure proper styling for clickability
-        newMarkerElement.style.cursor = "pointer";
-        newMarkerElement.style.zIndex = "1000";
-
-        // Create new marker
-        const newMarker = new mapboxgl.Marker(newMarkerElement)
-          .setLngLat([station.longitude, station.latitude])
-          .addTo(map.current!);
-
-        // Update reference
-        markersRef.current[station.id] = newMarker;
-      }
-    });
-  }, [activeMarkerId, filteredStations, mapInitialized]);
+  }, [filteredStations, mapInitialized, activeMarkerId]); // Added activeMarkerId to dependencies
 
   return {
     activeMarkerId,
