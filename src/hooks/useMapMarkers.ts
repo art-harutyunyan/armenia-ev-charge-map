@@ -1,3 +1,4 @@
+
 import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import { ChargingStation } from "@/types/chargers";
@@ -22,6 +23,11 @@ export const useMapMarkers = (
   const handleMarkerClick = (station: ChargingStation) => {
     console.log("Marker clicked for station:", station.name);
 
+    if (!map.current) {
+      console.error("Map not available");
+      return;
+    }
+
     // Close all existing popups first
     closeAllPopups();
 
@@ -39,7 +45,9 @@ export const useMapMarkers = (
     })
       .setLngLat([station.longitude, station.latitude])
       .setHTML(createPopupContent(station))
-      .addTo(map.current!);
+      .addTo(map.current);
+
+    console.log("Popup created and added to map for:", station.name);
 
     // Store popup reference
     popupsRef.current[station.id] = popup;
@@ -89,8 +97,7 @@ export const useMapMarkers = (
       }
 
       // Create custom marker element
-      const isActive = activeMarkerId === station.id;
-      const markerElement = createMarkerElement(station, isActive);
+      const markerElement = createMarkerElement(station, false);
 
       // Add click handler to marker element
       markerElement.addEventListener("click", (e) => {
