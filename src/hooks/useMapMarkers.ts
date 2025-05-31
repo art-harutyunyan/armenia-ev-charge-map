@@ -44,14 +44,15 @@ export const useMapMarkers = (
       const popupHTML = createPopupContent(station);
       console.log("Popup HTML created, length:", popupHTML.length);
 
-      // Create and show popup
+      // Create and show popup with better positioning options
       const popup = new mapboxgl.Popup({
-        offset: [0, -20],
+        offset: [0, -25],
         maxWidth: "400px",
         className: "custom-popup",
         closeButton: true,
         closeOnClick: false,
         anchor: "bottom",
+        focusAfterOpen: false,
       })
         .setLngLat([station.longitude, station.latitude])
         .setHTML(popupHTML);
@@ -78,6 +79,30 @@ export const useMapMarkers = (
       console.error("Error creating/showing popup:", error);
     }
   };
+
+  // Add map click handler to close popups when clicking outside
+  useEffect(() => {
+    if (!map.current || !mapInitialized) return;
+
+    const handleMapClick = (e: mapboxgl.MapMouseEvent) => {
+      // Check if the click is on a marker by checking if the target has the custom-marker class
+      const target = e.originalEvent.target as HTMLElement;
+      const isMarkerClick = target.closest('.custom-marker');
+      
+      if (!isMarkerClick) {
+        console.log("Map clicked outside of markers, closing popups");
+        closeAllPopups();
+      }
+    };
+
+    map.current.on('click', handleMapClick);
+
+    return () => {
+      if (map.current) {
+        map.current.off('click', handleMapClick);
+      }
+    };
+  }, [mapInitialized]);
 
   // Add markers for stations when map is initialized or when filteredStations change
   useEffect(() => {
