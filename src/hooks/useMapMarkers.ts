@@ -15,16 +15,20 @@ export const useMapMarkers = (
   const [activeMarkerId, setActiveMarkerId] = useState<string | null>(null);
 
   const closeAllPopups = () => {
+    console.log("Closing all popups");
     Object.values(popupsRef.current).forEach((popup) => popup.remove());
     popupsRef.current = {};
     setActiveMarkerId(null);
   };
 
   const handleMarkerClick = (station: ChargingStation) => {
-    console.log("Marker clicked for station:", station.name);
+    console.log("=== MARKER CLICK HANDLER TRIGGERED ===");
+    console.log("Station:", station.name);
+    console.log("Map available:", !!map.current);
+    console.log("Map initialized:", mapInitialized);
 
     if (!map.current) {
-      console.error("Map not available");
+      console.error("Map not available when trying to show popup");
       return;
     }
 
@@ -33,33 +37,46 @@ export const useMapMarkers = (
 
     // Set this marker as active
     setActiveMarkerId(station.id);
+    console.log("Set active marker ID:", station.id);
 
-    // Create and show popup
-    const popup = new mapboxgl.Popup({
-      offset: [0, -20],
-      maxWidth: "400px",
-      className: "custom-popup",
-      closeButton: true,
-      closeOnClick: false,
-      anchor: "bottom",
-    })
-      .setLngLat([station.longitude, station.latitude])
-      .setHTML(createPopupContent(station))
-      .addTo(map.current);
+    try {
+      // Create popup content
+      const popupHTML = createPopupContent(station);
+      console.log("Popup HTML created, length:", popupHTML.length);
 
-    console.log("Popup created and added to map for:", station.name);
+      // Create and show popup
+      const popup = new mapboxgl.Popup({
+        offset: [0, -20],
+        maxWidth: "400px",
+        className: "custom-popup",
+        closeButton: true,
+        closeOnClick: false,
+        anchor: "bottom",
+      })
+        .setLngLat([station.longitude, station.latitude])
+        .setHTML(popupHTML);
 
-    // Store popup reference
-    popupsRef.current[station.id] = popup;
+      console.log("Popup object created, adding to map...");
+      
+      popup.addTo(map.current);
+      
+      console.log("✅ Popup successfully added to map for:", station.name);
 
-    // Add close handler
-    popup.on("close", () => {
-      console.log("Popup closed for station:", station.name);
-      delete popupsRef.current[station.id];
-      if (activeMarkerId === station.id) {
-        setActiveMarkerId(null);
-      }
-    });
+      // Store popup reference
+      popupsRef.current[station.id] = popup;
+
+      // Add close handler
+      popup.on("close", () => {
+        console.log("Popup closed for station:", station.name);
+        delete popupsRef.current[station.id];
+        if (activeMarkerId === station.id) {
+          setActiveMarkerId(null);
+        }
+      });
+
+    } catch (error) {
+      console.error("Error creating/showing popup:", error);
+    }
   };
 
   // Add markers for stations when map is initialized
@@ -99,12 +116,19 @@ export const useMapMarkers = (
       // Create custom marker element
       const markerElement = createMarkerElement(station, false);
 
-      // Add click handler to marker element
+      // Add click handler to marker element with more debugging
       markerElement.addEventListener("click", (e) => {
+        console.log("🔥 MARKER ELEMENT CLICKED - Event triggered for:", station.name);
         e.stopPropagation();
-        console.log("Marker element clicked:", station.name);
+        e.preventDefault();
         handleMarkerClick(station);
       });
+
+      // Add additional debugging for marker element
+      markerElement.style.cursor = "pointer";
+      markerElement.style.zIndex = "1000";
+
+      console.log("Created marker element for:", station.name, "with click handler");
 
       // Create marker
       const marker = new mapboxgl.Marker(markerElement)
@@ -157,12 +181,17 @@ export const useMapMarkers = (
         // Create new marker with updated appearance
         const newMarkerElement = createMarkerElement(station, isActive);
 
-        // Add click handler to new element
+        // Add click handler to new element with debugging
         newMarkerElement.addEventListener("click", (e) => {
+          console.log("🔥 UPDATED MARKER ELEMENT CLICKED for:", station.name);
           e.stopPropagation();
-          console.log("Updated marker element clicked:", station.name);
+          e.preventDefault();
           handleMarkerClick(station);
         });
+
+        // Ensure proper styling for clickability
+        newMarkerElement.style.cursor = "pointer";
+        newMarkerElement.style.zIndex = "1000";
 
         // Create new marker
         const newMarker = new mapboxgl.Marker(newMarkerElement)
