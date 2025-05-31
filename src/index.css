@@ -101,83 +101,94 @@
 
 /* Enhanced Mapbox popup customization with proper z-index */
 .mapboxgl-popup {
-  z-index: 9999 !important;
-  position: relative;
+  z-index: 99999 !important;
+  position: fixed !important;
 }
 
 .mapboxgl-popup-content {
   padding: 0 !important;
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2) !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
   max-width: 400px !important;
-  max-height: 500px;
-  overflow: hidden;
-  position: relative;
-  z-index: 10000 !important;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  max-height: 500px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  z-index: 99999 !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  background: white !important;
 }
 
 .mapboxgl-popup-close-button {
-  font-size: 18px;
-  padding: 8px;
-  color: #666;
-  right: 8px;
-  top: 8px;
-  z-index: 10001 !important;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 18px !important;
+  padding: 8px !important;
+  color: #666 !important;
+  right: 8px !important;
+  top: 8px !important;
+  z-index: 100000 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50% !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
 }
 
 .mapboxgl-popup-close-button:hover {
-  color: #333;
-  background: rgba(255, 255, 255, 1);
+  color: #333 !important;
+  background: rgba(255, 255, 255, 1) !important;
 }
 
 /* Improve popup positioning and ensure it's always visible with better spacing */
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-content {
-  margin-bottom: 20px;
+  margin-bottom: 25px !important;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-content {
-  margin-top: 20px;
+  margin-top: 25px !important;
 }
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-content {
-  margin-left: 20px;
+  margin-left: 25px !important;
 }
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-content {
-  margin-right: 20px;
+  margin-right: 25px !important;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-  border-top-color: white;
-  margin-bottom: -1px;
-  z-index: 10000;
+  border-top-color: white !important;
+  margin-bottom: -1px !important;
+  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-  border-bottom-color: white;
-  margin-top: -1px;
-  z-index: 10000;
+  border-bottom-color: white !important;
+  margin-top: -1px !important;
+  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-  border-right-color: white;
-  margin-left: -1px;
-  z-index: 10000;
+  border-right-color: white !important;
+  margin-left: -1px !important;
+  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-  border-left-color: white;
-  margin-right: -1px;
-  z-index: 10000;
+  border-left-color: white !important;
+  margin-right: -1px !important;
+  z-index: 99999 !important;
+}
+
+/* Force popup container to be above everything */
+.mapboxgl-popup-anchor-top,
+.mapboxgl-popup-anchor-bottom,
+.mapboxgl-popup-anchor-left,
+.mapboxgl-popup-anchor-right {
+  z-index: 99999 !important;
+  position: relative !important;
 }
 
 /* Custom scrollbar for popup content */

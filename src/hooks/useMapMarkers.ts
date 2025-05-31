@@ -46,12 +46,12 @@ export const useMapMarkers = (
 
       // Create and show popup with better positioning options
       const popup = new mapboxgl.Popup({
-        offset: [0, -25],
+        offset: 30,
         maxWidth: "400px",
         className: "custom-popup",
         closeButton: true,
         closeOnClick: false,
-        anchor: "bottom",
+        closeOnMove: false,
         focusAfterOpen: false,
       })
         .setLngLat([station.longitude, station.latitude])
