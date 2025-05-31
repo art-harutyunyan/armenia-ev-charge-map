@@ -44,10 +44,10 @@ export const useMapMarkers = (
       const popupHTML = createPopupContent(station);
       console.log("Popup HTML created, length:", popupHTML.length);
 
-      // Create and show popup with better positioning options
+      // Create popup with simple offset - let Mapbox handle positioning automatically
       const popup = new mapboxgl.Popup({
-        offset: 30,
-        maxWidth: "400px",
+        offset: 25,
+        maxWidth: "380px",
         className: "custom-popup",
         closeButton: true,
         closeOnClick: false,
@@ -118,7 +118,7 @@ export const useMapMarkers = (
       `Adding markers for ${filteredStations.length} filtered stations`
     );
 
-    // Remove any existing markers but DON'T close popups here
+    // Remove any existing markers
     Object.values(markersRef.current).forEach((marker) => marker.remove());
     markersRef.current = {};
 
@@ -141,7 +141,7 @@ export const useMapMarkers = (
       const isActive = activeMarkerId === station.id;
       const markerElement = createMarkerElement(station, isActive);
 
-      // Add click handler to marker element with more debugging
+      // Add click handler to marker element
       markerElement.addEventListener("click", (e) => {
         console.log("🔥 MARKER ELEMENT CLICKED - Event triggered for:", station.name);
         e.stopPropagation();
@@ -186,7 +186,7 @@ export const useMapMarkers = (
         });
       }
     }
-  }, [filteredStations, mapInitialized, activeMarkerId]); // Added activeMarkerId to dependencies
+  }, [filteredStations, mapInitialized, activeMarkerId]);
 
   return {
     activeMarkerId,

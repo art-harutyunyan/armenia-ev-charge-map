@@ -99,96 +99,63 @@
   cursor: pointer;
 }
 
-/* Enhanced Mapbox popup customization with proper z-index */
+/* Simplified Mapbox popup styles - let Mapbox handle positioning */
 .mapboxgl-popup {
-  z-index: 99999 !important;
-  position: fixed !important;
+  z-index: 1000;
 }
 
 .mapboxgl-popup-content {
   padding: 0 !important;
   border-radius: 8px !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-  max-width: 400px !important;
-  max-height: 500px !important;
+  max-width: 380px !important;
+  max-height: 450px !important;
   overflow: hidden !important;
-  position: relative !important;
-  z-index: 99999 !important;
-  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
   background: white !important;
 }
 
 .mapboxgl-popup-close-button {
-  font-size: 18px !important;
-  padding: 8px !important;
+  font-size: 16px !important;
+  padding: 6px !important;
   color: #666 !important;
-  right: 8px !important;
-  top: 8px !important;
-  z-index: 100000 !important;
-  background: rgba(255, 255, 255, 0.9) !important;
+  right: 6px !important;
+  top: 6px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   border-radius: 50% !important;
-  width: 30px !important;
-  height: 30px !important;
+  width: 26px !important;
+  height: 26px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  position: absolute !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
 }
 
 .mapboxgl-popup-close-button:hover {
   color: #333 !important;
-  background: rgba(255, 255, 255, 1) !important;
+  background: white !important;
 }
 
-/* Improve popup positioning and ensure it's always visible with better spacing */
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-content {
-  margin-bottom: 25px !important;
-}
-
-.mapboxgl-popup-anchor-top .mapboxgl-popup-content {
-  margin-top: 25px !important;
-}
-
-.mapboxgl-popup-anchor-left .mapboxgl-popup-content {
-  margin-left: 25px !important;
-}
-
-.mapboxgl-popup-anchor-right .mapboxgl-popup-content {
-  margin-right: 25px !important;
+.mapboxgl-popup-tip {
+  border-width: 10px !important;
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
   border-top-color: white !important;
-  margin-bottom: -1px !important;
-  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   border-bottom-color: white !important;
-  margin-top: -1px !important;
-  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
   border-right-color: white !important;
-  margin-left: -1px !important;
-  z-index: 99999 !important;
 }
 
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
   border-left-color: white !important;
-  margin-right: -1px !important;
-  z-index: 99999 !important;
-}
-
-/* Force popup container to be above everything */
-.mapboxgl-popup-anchor-top,
-.mapboxgl-popup-anchor-bottom,
-.mapboxgl-popup-anchor-left,
-.mapboxgl-popup-anchor-right {
-  z-index: 99999 !important;
-  position: relative !important;
 }
 
 /* Custom scrollbar for popup content */
@@ -219,7 +186,7 @@
 /* Responsive styles */
 @media (max-width: 640px) {
   .mapboxgl-popup-content {
-    max-width: 280px !important;
+    max-width: 300px !important;
     max-height: 400px !important;
   }
 }
