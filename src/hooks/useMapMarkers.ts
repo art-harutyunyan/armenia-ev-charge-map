@@ -58,8 +58,25 @@ export const useMapMarkers = (
         .setHTML(popupHTML);
 
       console.log("Popup object created, adding to map...");
-      
+
       popup.addTo(map.current);
+
+      // Automatically pan the map if the popup would appear outside
+      // the visible area (e.g. when markers are at the bottom of the map)
+      const canvas = map.current.getCanvas();
+      const markerPoint = map.current.project([
+        station.longitude,
+        station.latitude,
+      ]);
+      const canvasHeight = canvas.height;
+      const popupOffset = 200; // pixels
+      if (markerPoint.y > canvasHeight - popupOffset) {
+        map.current.easeTo({
+          center: [station.longitude, station.latitude],
+          offset: [0, popupOffset],
+          duration: 500,
+        });
+      }
       
       console.log("✅ Popup successfully added to map for:", station.name);
 
